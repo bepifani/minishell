@@ -6,18 +6,19 @@
 #    By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/15 16:34:08 by bepifani          #+#    #+#              #
-#    Updated: 2022/02/15 16:43:40 by bepifani         ###   ########.fr        #
+#    Updated: 2022/02/15 17:48:39 by bepifani         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = minishell
 
-HEADER = so_long.h
-LIBFT = bible/libft.a
+HEADER = minishell.h
+LIBFT = bible2/libft.a
 
 FLAGS = gcc -Wall -Wextra -Werror
+RFLAG = -lreadline
 
-FILES = ./gnl/get_next_line.c	./gnl/get_next_line_utils.c
+FILES = ./gnl/get_next_line.c	./gnl/get_next_line_utils.c	main.c 1pwd.c 1echo.c
 
 OBJ = $(FILES:.c=.o)
 
@@ -26,8 +27,8 @@ all : $(NAME)
 %.o: %.c $(HEADER)
 	$(FLAGS) -o $@ -c $<
 
-$(NAME) : $(OBJ) $(LIBFT) $(MLX) $(HEADER)
-	$(FLAGS) $(MLXFLAGS) $(OBJ) $(LIBFT) $(MLX) -o $(NAME)
+$(NAME) : $(OBJ) $(LIBFT) $(HEADER)
+	$(FLAGS) $(RFLAG) $(OBJ) $(LIBFT) -o $(NAME)
 
 $(LIBFT):
 	$(MAKE) bonus -C libft

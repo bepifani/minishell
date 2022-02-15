@@ -6,18 +6,26 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 16:36:14 by bepifani          #+#    #+#             */
-/*   Updated: 2022/02/15 16:43:20 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/02/15 17:49:34 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINISHELL_H
 # define MINISHELL_H
+# define PROMPT "minishell> "
 
-# include "./libft/libft.h"
+# include "./bible2/libft.h"
 # include "./gnl/get_next_line.h"
 # include <unistd.h>
 # include <stdio.h>
-# include <fcntl.h>
+# include <limits.h>
+# include <stdlib.h>
+# include <fcntl.h>              
+# include <sys/types.h>
+# include <sys/wait.h>
+# include <readline/readline.h>
+# include <readline/history.h>
+# include <stdbool.h>
 
 typedef struct s_pip {
 	int	lpipe[2];
@@ -41,8 +49,12 @@ typedef struct s_info {
 	int		count;
 	int		pid;
 	int		*last_r;
-	t_vars	*vars;
+	//t_vars	*vars;
 	t_pip	pip;
 }	t_info;
+
+int		ft_pwd(void);
+int		ft_echo(char **line);
+
 
 #endif

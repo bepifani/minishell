@@ -1,37 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   1echo.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/05 17:53:04 by bepifani          #+#    #+#             */
-/*   Updated: 2022/02/15 16:51:33 by bepifani         ###   ########.fr       */
+/*   Created: 2022/02/15 17:42:40 by bepifani          #+#    #+#             */
+/*   Updated: 2022/02/15 18:11:06 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "minishell.h"
 
-int	ft_atoi(const char *str)
+int	ft_echo(char **line)
 {
 	int	i;
-	int	b;
 
-	i = 0;
-	b = 0;
-	while (*str == ' ' || *str == '\n' || *str == '\v'
-		|| *str == '\t' || *str == '\f' || *str == '\r')
-		str++;
-	if (*str == '-')
-		b++;
-	if (*str == '-' || *str == '+')
-		str++;
-	while (*str >= '0' && *str <= '9')
+	i = 8;
+	if (ft_strncmp(line[0], "echo -n", 6) == 0)
 	{
-		i = i * 10 + (*str - 48);
-		str++;
+		while(line[0][i] != '\0')
+		{
+			ft_putchar_fd(line[0][i], 1);
+			i++;
+		}
+		return (1);
 	}
-	if (b == 1)
-		i = i * (-1);
-	return (i);
+	else if (ft_strncmp(line[0], "echo", 3) == 0)
+	{
+		i = 5;
+		while(line[0][i] != '\0')
+		{
+			ft_putchar_fd(line[0][i], 1);
+			i++;
+		}
+		write(1, "\n", 1);
+		return (1);
+	}
+	return (0);
 }

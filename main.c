@@ -1,37 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/05 17:53:04 by bepifani          #+#    #+#             */
-/*   Updated: 2022/02/15 16:51:33 by bepifani         ###   ########.fr       */
+/*   Created: 2022/02/15 16:54:50 by bepifani          #+#    #+#             */
+/*   Updated: 2022/02/15 18:07:56 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "minishell.h"
 
-int	ft_atoi(const char *str)
+int main (int argc, char **argv, char **envp)
 {
-	int	i;
-	int	b;
-
-	i = 0;
-	b = 0;
-	while (*str == ' ' || *str == '\n' || *str == '\v'
-		|| *str == '\t' || *str == '\f' || *str == '\r')
-		str++;
-	if (*str == '-')
-		b++;
-	if (*str == '-' || *str == '+')
-		str++;
-	while (*str >= '0' && *str <= '9')
+	t_info	info;
+	
+	(void)argv;
+	(void)envp;
+	if (argc == 1)
 	{
-		i = i * 10 + (*str - 48);
-		str++;
+		info.line = readline(PROMPT);
+		ft_echo(&info.line);
+		//ft_pwd();
 	}
-	if (b == 1)
-		i = i * (-1);
-	return (i);
+	return (0);
 }

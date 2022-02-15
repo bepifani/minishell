@@ -1,37 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   1pwd.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/05 17:53:04 by bepifani          #+#    #+#             */
-/*   Updated: 2022/02/15 16:51:33 by bepifani         ###   ########.fr       */
+/*   Created: 2022/02/15 17:37:28 by bepifani          #+#    #+#             */
+/*   Updated: 2022/02/15 17:39:50 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "minishell.h"
 
-int	ft_atoi(const char *str)
+int	ft_pwd(void)
 {
-	int	i;
-	int	b;
+	char	cwd[PATH_MAX];
 
-	i = 0;
-	b = 0;
-	while (*str == ' ' || *str == '\n' || *str == '\v'
-		|| *str == '\t' || *str == '\f' || *str == '\r')
-		str++;
-	if (*str == '-')
-		b++;
-	if (*str == '-' || *str == '+')
-		str++;
-	while (*str >= '0' && *str <= '9')
+	if (getcwd(cwd, PATH_MAX))
 	{
-		i = i * 10 + (*str - 48);
-		str++;
+		ft_putendl_fd(cwd, 1);
+		return (1);
 	}
-	if (b == 1)
-		i = i * (-1);
-	return (i);
+	else
+		return (0);
 }
