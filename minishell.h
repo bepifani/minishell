@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 16:36:14 by bepifani          #+#    #+#             */
-/*   Updated: 2022/02/15 17:49:34 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/02/16 17:43:32 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,9 @@ typedef struct s_info {
 int		ft_pwd(void);
 int		ft_echo(char **line);
 
+
+//parser.c
+int		ft_check_pipe(t_info *info);
+int		ft_check_str_pipe(char *str);
 
 #endif
