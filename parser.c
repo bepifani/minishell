@@ -6,45 +6,31 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 16:35:59 by bepifani          #+#    #+#             */
-/*   Updated: 2022/02/16 17:54:47 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/02/18 17:40:52 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int	ft_check_simbol1(t_info *info)
+int	ft_check_scobe(t_info *info)
 {
-	int	i;
-	int	count;
+	int	i = 0;
+	int	count1 = 0;
+	int	count2 = 0;
 	
-	i = 0;
-	count = 0;
 	while (info->line[i] != '\0')
 	{
-		if (info->line[i] == '"')
-			count++;
+		if (info->line[i] == '"' && count1 == 0)
+			count1++;
+		else if (info->line[i] == '"' && count1 == 1)
+			count1--;
+		else if (info->line[i] == 39 && count2 == 0)
+			count2++;
+		else if (info->line[i] == 39 && count2 == 1)
+			count2--;
 		i++;
 	}
-	if (count % 2 == 0)
-		return (1);
-	else
-		return (0);
-}
-
-int	ft_check_simbol2(t_info *info)
-{
-	int	i;
-	int	count;
-	
-	i = 0;
-	count = 0;
-	while (info->line[i] != '\0')
-	{
-		if (info->line[i] == 39)
-			count++;
-		i++;
-	}
-	if (count % 2 == 0)
+	if (count1 == 0 && count2 == 0)
 		return (1);
 	else
 		return (0);

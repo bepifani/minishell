@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 16:54:50 by bepifani          #+#    #+#             */
-/*   Updated: 2022/02/16 17:33:16 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/02/18 17:39:29 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int main (int argc, char **argv, char **envp)
 		//ft_pwd();
 	}
 	int a;
-	a = ft_check_pipe(&info);
+	a = ft_check_scobe(&info);
 	printf ("%d\n",a);
 	return (0);
 }
