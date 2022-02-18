@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 16:35:59 by bepifani          #+#    #+#             */
-/*   Updated: 2022/02/18 17:40:52 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/02/18 17:56:03 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,11 +66,19 @@ int	ft_check_pipe(t_info *info)
 		{
 			printf ("tytt\n");
 			i++;
-			while (info->line[i] != '|' && info->line[i])
+			printf ("%c\n" ,info->line[i]);
+			printf ("%c\n" ,info->line[i + 1]);
+			if (info->line[i] == '|' || info->line[i + 1] == '|')
 			{
-				i++;
+				return (0);
+				break ;
+			}
+			while (info->line[i] != '|' && info->line[i] != '\0')
+			{
+				//i++;
 				str[j] = info->line[i];
 				//printf ("tyt%c\n", info->line[i]);
+				i++;
 				j++;
 			}
 			printf ("%s\n", str);
@@ -78,6 +86,7 @@ int	ft_check_pipe(t_info *info)
 				return (0);
 			j = 0;
 			free (str);
+			i--;
 		}
 		i++;
 	}
