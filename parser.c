@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 16:35:59 by bepifani          #+#    #+#             */
-/*   Updated: 2022/02/20 16:58:20 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/02/20 17:34:48 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,7 @@ int	ft_check_pipe(t_info *info) // +
 	{
 		if (info->line[i] == '|')
 		{
-			printf ("tytt\n");
 			i++;
-			printf ("%c\n" ,info->line[i]);
-			printf ("%c\n" ,info->line[i + 1]);
 			if (info->line[i] == '|' || info->line[i + 1] == '|')
 			{
 				return (0);
@@ -75,9 +72,7 @@ int	ft_check_pipe(t_info *info) // +
 			}
 			while (info->line[i] != '|' && info->line[i] != '\0')
 			{
-				//i++;
 				str[j] = info->line[i];
-				//printf ("tyt%c\n", info->line[i]);
 				i++;
 				j++;
 			}
@@ -173,10 +168,37 @@ int	ft_check_redirect(t_info *info)
 	return (1);
 }
 
+int ft_scobes(char *line)
+{
+	int i = 0;
+	int check = 0;
+
+	while (line[i] !='\0')
+	{
+		if (line[i] == 34 && (check == 0 || check == 1))
+		{
+			if (check == 0)
+				check == 1;
+			else
+				check == 0;
+		}
+		if ((check == 0 || check == 2) && line[i] == 39)
+		{
+			if (check == 0)
+				check == 2;
+			else
+				check == 0;
+		}
+		i++;
+	}
+	return (check);
+}
+
 int	ft_parser(t_info *info)
 {
-	int	i;
-
-	i = 0;
-	
+	if (ft_scobe(info->line))
+		ft_error ();
+	if (!ft_chack_spase(info) || !ft_check_pipe(info) || !ft_check_redirect(info));
+		ft_error();
+	return (0);
 }
