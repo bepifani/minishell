@@ -6,13 +6,13 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 16:35:59 by bepifani          #+#    #+#             */
-/*   Updated: 2022/02/18 17:56:03 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/02/20 16:58:20 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int	ft_check_scobe(t_info *info)
+int	ft_check_scobe(t_info *info) //?
 {
 	int	i = 0;
 	int	count1 = 0;
@@ -36,7 +36,7 @@ int	ft_check_scobe(t_info *info)
 		return (0);
 }
 
-int	ft_check_str_pipe(char *str)
+int	ft_check_str_pipe(char *str) // +
 {
 	int	i = 0;
 	size_t	count = 0;
@@ -52,7 +52,7 @@ int	ft_check_str_pipe(char *str)
 	return (1);
 }
 
-int	ft_check_pipe(t_info *info)
+int	ft_check_pipe(t_info *info) // +
 {
 	int		i;
 	int		j = 0;
@@ -93,7 +93,7 @@ int	ft_check_pipe(t_info *info)
 	return (1);
 }
 
-void	ft_line_to_mas(t_info *info)
+void	ft_line_to_mas(t_info *info) //?
 {
 	int		i;
 	int		j;
@@ -119,7 +119,64 @@ void	ft_line_to_mas(t_info *info)
 	free(str);
 }
 
-// int	ft_parser(t_info *info)
-// {
+int	ft_chack_spase(t_info *info) //+
+{
+	size_t	i;
+
+	i = 0;
+	while(info->line[i] != '\0' && info->line[i] == ' ')
+		i++;
+	if (i == ft_strlen(info->line))
+		return (0); 
+	else
+		return (1);
+}
+
+int	ft_redirect_helper (int i, char *line)
+{
+	int j = 0;
 	
-// }
+	while (line[i] != '\0' && line[i] == ' ')
+		i++;
+	j = i + 1;
+	if (line[i + 1] == '>' || line[i + 1] == '<' || line[i + 1] == '|' || !line[i + 1])
+		return (0);
+	if (line[j - 1] == '>' && line[j  + 1] == '>' && ft_isdigit(line[j]) == 1)
+		return(0);
+	return (1);
+}
+
+int	ft_check_redirect(t_info *info)
+{
+	int i;
+
+	i = 0;
+	while (info->line[i] != '\0')
+	{
+		if (info->line[i] == '>' || info->line[i] == '<')
+		{
+			if ((info->line[i+1] == '>' && info->line[i] == '>') || (info->line[i+1] == '<' && info->line[i] == '<'))
+			{
+				i++;
+				if (ft_redirect_helper(i, info->line) == 0)
+					return (0);
+				i++;
+			}
+			else
+			{
+				if (ft_redirect_helper(i, info->line) == 0)
+					return (0);
+			}
+		}
+		i++;
+	}
+	return (1);
+}
+
+int	ft_parser(t_info *info)
+{
+	int	i;
+
+	i = 0;
+	
+}

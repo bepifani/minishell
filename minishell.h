@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 16:36:14 by bepifani          #+#    #+#             */
-/*   Updated: 2022/02/18 17:39:14 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/02/20 16:59:09 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,8 @@ int		ft_echo(char **line);
 int		ft_check_pipe(t_info *info);
 int		ft_check_str_pipe(char *str);
 int		ft_check_scobe(t_info *info);
+int		ft_chack_spase(t_info *info);
+int		ft_redirect_helper (int i, char *line);
+int		ft_check_redirect(t_info *info);
 
 #endif
