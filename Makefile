@@ -6,7 +6,7 @@
 #    By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/15 16:34:08 by bepifani          #+#    #+#              #
-#    Updated: 2022/02/16 17:33:42 by bepifani         ###   ########.fr        #
+#    Updated: 2022/02/22 18:46:01 by bepifani         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ LIBFT = bible2/libft.a
 FLAGS = gcc -Wall -Wextra -Werror
 RFLAG = -lreadline
 
-FILES = ./gnl/get_next_line.c	./gnl/get_next_line_utils.c	main.c 1pwd.c 1echo.c	parser.c
+FILES = ./gnl/get_next_line.c	./gnl/get_next_line_utils.c	main.c 1pwd.c 1echo.c	parser.c	splits.c
 
 OBJ = $(FILES:.c=.o)
 

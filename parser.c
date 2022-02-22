@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 16:35:59 by bepifani          #+#    #+#             */
-/*   Updated: 2022/02/20 17:34:48 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/02/22 18:45:47 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -178,16 +178,16 @@ int ft_scobes(char *line)
 		if (line[i] == 34 && (check == 0 || check == 1))
 		{
 			if (check == 0)
-				check == 1;
+				check = 1;
 			else
-				check == 0;
+				check = 0;
 		}
 		if ((check == 0 || check == 2) && line[i] == 39)
 		{
 			if (check == 0)
-				check == 2;
+				check = 2;
 			else
-				check == 0;
+				check = 0;
 		}
 		i++;
 	}
@@ -196,9 +196,10 @@ int ft_scobes(char *line)
 
 int	ft_parser(t_info *info)
 {
-	if (ft_scobe(info->line))
-		ft_error ();
-	if (!ft_chack_spase(info) || !ft_check_pipe(info) || !ft_check_redirect(info));
-		ft_error();
+	if (ft_scobes(info->line))
+		return (0);
+	// 	ft_error ();
+	// if (!ft_chack_spase(info) || !ft_check_pipe(info) || !ft_check_redirect(info));
+	// 	ft_error();
 	return (0);
 }
