@@ -6,59 +6,44 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 17:02:01 by bepifani          #+#    #+#             */
-/*   Updated: 2022/02/22 18:50:18 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/02/23 17:40:21 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int	ft_size_of_pipe(char *line, int i)
+char	*ft_redir1(char *str)
 {
-	int	size;
+	int i;
+	char *s;
 
-	size = 0;
-	while (line[i] != '|' && line[i] != '\0')
-	{
-		i++;
-		size++;
-	}
-	return (size);
-}
-
-char *ft_str_to_pipe(char *line, int size, int j)
-{
-	char	*str = NULL;;
-	int		i;
-	
 	i = 0;
-	//str = malloc(sizeof(char) * size + 1);
-	while (size > 0)
-	{
-		str[i] = line[j];
-		j++;
+	s = NULL;
+	while (str[i] != ' ' && str[i] != '|' && str[i] != '<' && str[i] != '>' && str[i]) 
 		i++;
-		size--;
+	s = malloc(sizeof(char) * i + 1);
+	i = 0;
+	while (str[i] != ' ' && str[i] != '|' && str[i] != '<' && str[i] != '>' && str[i])
+	{
+		s[i] = str[i]; 
+		i++;
 	}
-	str[i] = '\0';
-	return (str);
+	//free(str);
+	s[i] = '\0';
+	return (s);
 }
 
-char	**ft_split_to_pipe(char *line)
+char	**ft_split_to_pipe(t_info *info)
 {
 	char	**mas;
-	int		i;
-	int		j;
 
-	i = 0;
-	j = 0;
 	mas = NULL;
-	while (line[i] != '\0')
-	{
-		mas[j] = malloc((sizeof(char)) * ft_size_of_pipe(line, i));
-		mas[j] = ft_str_to_pipe(line, ft_size_of_pipe(line, i), i);
-		j++;
-		i++;
-	}
-	mas[j] = NULL;
+	info->cmd = NULL;
+	mas = ft_split(info->line, '|');
+	printf("tyt\n");
+	//info->cmd[0][0] = NULL;
+	printf("%s.\n", ft_redir1(mas[0]));
+	info->cmd[0][0] = ft_redir1(mas[0]);
+	printf("%s\n", info->cmd[0][0]);
 	return (mas);
 }

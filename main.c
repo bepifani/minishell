@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 16:54:50 by bepifani          #+#    #+#             */
-/*   Updated: 2022/02/22 18:48:21 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/02/23 17:00:54 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,13 @@ int main (int argc, char **argv, char **envp)
 		ft_echo(&info.line);
 		//ft_pwd();
 	}
-	int a;
-	a = ft_check_scobe(&info);
-	a = ft_check_pipe(&info);
+	// int a;
+	// a = ft_check_scobe(&info);
+	// a = ft_check_pipe(&info);
 	char **massiv;
 	massiv = NULL;
-	massiv = ft_split_to_pipe(info.line);
-	printf ("%s\n", massiv[0]);
+	//massiv = malloc (1000);
+	massiv = ft_split_to_pipe(&info);
+	printf ("0 =%s)\n1 =%s)\n2 =%s)\n", massiv[0], massiv[1], massiv[2]);
 	return (0);
 }

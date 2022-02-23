@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 16:36:14 by bepifani          #+#    #+#             */
-/*   Updated: 2022/02/22 18:42:51 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/02/23 16:58:10 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ int		ft_scobes(char *line); // в каких сейчас скобках 1 - "" 
 //splits.c
 int		ft_size_to_pipe(char *line, int i);
 char 	*ft_str_of_pipe(char *line, int size, int j);
-char	**ft_split_to_pipe(char *line);
+char	**ft_split_to_pipe(t_info *info);
+char	*ft_redir1(char *str);
 
 #endif
