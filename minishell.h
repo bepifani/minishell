@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 16:36:14 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/02 17:00:36 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/02 17:36:53 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,5 +86,12 @@ void	ft_make_redir(t_info *info, char *str, int pos); //ft_create_l
 void	ft_make_redir2(t_info *info, char *str, int pos); //ft_create_ll
 void	ft_make_redir3(t_info *info, char *str, int q); //ft_create_r
 void	ft_maker_commands(t_info *info); //ft_rebildredir
+
+//maker_com_helper.c
+int		ft_helper(char *str, int *i); //helper
+void	ft_skiper2(char *str, int *i, int *j); //ft_skipp
+int		ft_find_name(char *str, int i, char symbol); //find_name_len
+char	*ft_skiper(char *str); //ft_skipsimic
+char	*ft_remake(t_info *info, int i, int name, int pos); //ft_rebilder
 
 #endif
