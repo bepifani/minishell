@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 15:23:41 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/02 16:46:22 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/02 16:57:58 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,5 +101,32 @@ void	ft_make_redir3(t_info *info, char *str, int q) //ft_create_r
 			break ;
 		}
 		i++;
+	}
+}
+
+void	ft_maker_commands(t_info *info) //ft_rebildredir
+{
+	int	i;
+
+	i = 0;
+	while (info->commands[i] != NULL)
+	{
+		if (info->commands[i][0] != ';')
+		{
+			while (ft_strnstr(info->commands[i], "<<", ft_strlen(info->commands[i])))
+				ft_make_redir2(info, info->commands[i], i); //ft_create_ll
+			while (ft_str_redirs(info->commands[i], '<')) //ft_strrchr_upred
+				ft_make_redir(info, info->commands[i], i); //ft_create_l
+			while (ft_str_redirs(info->commands[i], '>')) //ft_strrchr_upred
+				ft_make_redir3(info, info->commands[i], i); //ft_create_r
+		}
+		if (info->commands[i + 1] && info->commands[i + 2])
+			i = i + 2;
+		if (info->commands[i + 1] != NULL)
+			i++;
+		if (info->commands[i + 1] != NULL)
+			i++;
+		else
+			break ;
 	}
 }
