@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 16:35:59 by bepifani          #+#    #+#             */
-/*   Updated: 2022/02/22 18:45:47 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/02 13:30:23 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -194,7 +194,7 @@ int ft_scobes(char *line)
 	return (check);
 }
 
-int	ft_parser(t_info *info)
+int	ft_parser(t_info *info) //ft_parsing
 {
 	if (ft_scobes(info->line))
 		return (0);
