@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 16:36:14 by bepifani          #+#    #+#             */
-/*   Updated: 2022/02/23 16:58:10 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/02 15:21:48 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,9 +67,17 @@ int		ft_check_redirect(t_info *info); // 1 - ок 0 - не ок
 int		ft_scobes(char *line); // в каких сейчас скобках 1 - "" 2 - '' 0 - не в скобках
 
 //splits.c
-int		ft_size_to_pipe(char *line, int i);
-char 	*ft_str_of_pipe(char *line, int size, int j);
-char	**ft_split_to_pipe(t_info *info);
+int		ft_where_quot(char c, int code); //is_it_quot
+size_t 	ft_words(char *str, char *c, int code); //ft_word_count_up
+//static char	*ft_newword(char *str, char c, size_t *i) //ft_newword_up
+char	**ft_free_mas(char **mas); //ft_mmyfree_up
+char	**ft_split_for_words(char *str1, char *str2); //ft_split_up
 char	*ft_redir1(char *str);
+char	**ft_split_to_pipe(t_info *info);
+
+//split2.c
+size_t	ft_counter_for_words(char *str, char symbol); //ft_word_count_l
+int		ft_helper_for_words(char *str1, int i, char *str2, int c); //ft_parser_split_helper
+int		ft_split_helper(char *str1, int i, char *str2, int c); //ft_parser_split_helper2
 
 #endif
