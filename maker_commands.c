@@ -6,13 +6,13 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 15:23:41 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/02 16:57:58 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/02 16:59:24 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int	ft_str_redirs(char *str, int q)
+int	ft_str_redirs(char *str, int q) //ft_strrchr_upred
 {
 	size_t	i;
 	char	*s;
