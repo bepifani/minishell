@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 16:36:14 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/03 16:01:16 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/03 16:28:20 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@
 # include <readline/readline.h>
 # include <readline/history.h>
 # include <stdbool.h>
+
+int	g_error;
 
 typedef struct s_pip {
 	int	lpipe[2];
@@ -100,5 +102,12 @@ void	ft_swaper(t_info *info, int q, char *str); 						//ft_swap_string
 void	ft_first_comm(t_info *info); 									//ft_changefirstcomm
 int		ft_checker_for_name(char *line); 								//check_name_var_pars
 int		ft_checker_for_pars(char *str); 								//ft_checkenv_d_pars
+
+//split_for_mas.c
+char	*ft_add_end(void); 												//ft_add_noth
+int		ft_add_helper(t_info *info, char **mas, int i, int j); 			//add_pipe_helper
+int		ft_add_pipe(t_info *info); 										//ft_add_pipe
+
+//split_for_mas2.c
 
 #endif
