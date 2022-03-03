@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 16:36:14 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/03 16:28:20 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/03 16:49:20 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,5 +109,11 @@ int		ft_add_helper(t_info *info, char **mas, int i, int j); 			//add_pipe_helper
 int		ft_add_pipe(t_info *info); 										//ft_add_pipe
 
 //split_for_mas2.c
+char	*ft_pipe_to_str(t_info *info, int *i, int *j); 					//pipe_to_string
+char	*ft_gnl_join(char *line, char *buf); 							//ft_gnlstrjoin
+int		ft_checker_env(char *str); 										//ft_checkenv_d
+int		ft_swap_ask(t_info *info, int index, int i); 					//ft_swap_ask
+
+//error.c
 
 #endif
