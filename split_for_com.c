@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 16:04:32 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/03 16:22:38 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/04 14:30:12 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ int	ft_add_helper(t_info *info, char **mas, int i, int j) //add_pipe_helper
 {
 	while (info->splited[i])
 	{
-		mas[j++] = ft_add_noth();
+		mas[j++] = ft_add_end();
 		mas[j++] = info->splited[i];
-		mas[j++] = ft_add_noth();
+		mas[j++] = ft_add_end();
 		if (info->splited[i + 1] != NULL)
 		{
 			mas[j] = malloc(sizeof(char) * 2);
@@ -64,9 +64,9 @@ int	ft_add_pipe(t_info *info) //ft_add_pipe
 	len = i;
 	i = 0;
 	j = 0;
-	add_pipe_helper(info, mas, i, j);
+	ft_add_helper(info, mas, i, j);
 	if (info->commands)
-		ft_myfree(info->commands);
+		ft_myfree(info->commands); //??????????
 	info->commands = mas;
 	return (1);
 }

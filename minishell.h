@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 16:36:14 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/04 14:06:38 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/04 14:10:12 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 # define PROMPT "minishell> "
 
 # include "./bible2/libft.h"
-# include "./gnl/get_next_line.h"
 # include <unistd.h>
 # include <stdio.h>
 # include <limits.h>
@@ -57,16 +56,6 @@ typedef struct s_info {
 
 int		ft_pwd(void);
 int		ft_echo(char **line);
-
-
-//parser.c
-int		ft_check_pipe(t_info *info); // 1 - ок 0 - не ок
-int		ft_check_str_pipe(char *str);
-int		ft_check_scobe(t_info *info);
-int		ft_chack_spase(t_info *info); // // 1 - ок 0 - не ок
-int		ft_redirect_helper (int i, char *line);
-int		ft_check_redirect(t_info *info); // 1 - ок 0 - не ок
-int		ft_scobes(char *line); // в каких сейчас скобках 1 - "" 2 - '' 0 - не в скобках
 
 //splits.c
 int		ft_where_quot(char c, int code); 								//is_it_quot

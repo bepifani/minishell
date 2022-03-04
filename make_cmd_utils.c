@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 13:29:56 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/04 13:33:36 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/04 14:24:31 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ char	**ft_add_string(char **arr, char *str) //ft_add_string
 		n++;
 	result = ft_calloc(n + 1 + (str != NULL), sizeof(char *));
 	if (!result)
-		ft_error(NULL, 1);//??????????????
+		ft_error(NULL, 1);
 	result[n + (str != NULL)] = NULL;
 	n = 0;
 	while (arr && arr[n])
@@ -89,15 +89,15 @@ char	**ft_mas_from_arr(char **arr) //foo_bar
 	while (arr[n])
 	{
 		if (ft_strncmp(arr[n], "<", 1))
-			res = ft_add_string(res, ft_strdup(arr[n])); //????????
+			res = ft_add_string(res, ft_strdup(arr[n]));
 		else
 		{
 			c = 0;
 			while (arr[n][c] == '<')
 			{
 				len = 0;
-				foo_helper(arr[n], &c, &len);  //?????????????
-				res = ft_add_string(res, ft_substr(&arr[n][c - len], 0, len)); //???????????
+				ft_mas_from_arr_helper(arr[n], &c, &len);
+				res = ft_add_string(res, ft_substr(&arr[n][c - len], 0, len));
 			}
 		}
 		n++;

@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 15:10:27 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/03 15:57:51 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/04 14:38:47 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,13 +73,13 @@ void	ft_first_comm(t_info *info) //ft_changefirstcomm
 	while (info->splited[i])
 	{
 		mas = ft_split(info->splited[i], ' ');
-		if (ft_quot(mas[0]) == 0) //???
+		if (ft_where_is_quot(mas[0]) == 0)
 		{
 			if (ft_strrchr(mas[0], 34) || ft_strrchr(mas[0], 39))
 			{
 				new_line = malloc(sizeof(char) * (ft_strlen(mas[0]) - 1));
 				if (new_line == NULL)
-					ft_error(info, 1); //???
+					ft_error(info, 1);
 				ft_delete_symbol(mas[0], new_line);
 				line = new_line;
 				ft_swaper(info, i, line);

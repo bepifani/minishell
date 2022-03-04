@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 14:02:38 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/04 14:05:32 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/04 14:34:28 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ int	ft_get_size_of_line(char *args, int *i) //get_interval_len
 	int	len;
 
 	len = 0;
-	if (is_it_quot(args[*i], 0) != 0) //??????????
+	if (ft_where_quot(args[*i], 0) != 0)
 	{
 		(*i)++;
-		while (is_it_quot(args[*i], 0) && args[*i]) //???????????
+		while (ft_where_quot(args[*i], 0) && args[*i])
 		{
 			(*i)++;
 			len++;
@@ -45,13 +45,13 @@ void	ft_maker_for_strings(int acc, char *args, char **splited) //make_strings
 
 	i = 0;
 	j = 0;
-	is_it_quot(' ', 1); //??????????
+	ft_where_quot(' ', 1);
 	while (j < acc)
 	{
 		len = 0;
 		while (args[i] && args[i] == ' ')
 			i++;
-		len = get_interval_len(args, &i); //????????????
+		len = ft_get_size_of_line(args, &i);
 		splited[j++] = ft_substr(args, i - len, len);
 	}
 }
@@ -63,8 +63,8 @@ size_t	ft_word_count_up(char *s, char *c, int code) //ft_word_count_up2
 
 	i = 0;
 	count = 0;
-	is_it_quot(s[i], 1); //????????????
-	count = ft_parser_split_helper2(s, i, c, code); //????????????
+	ft_where_quot(s[i], 1);
+	count = ft_split_helper(s, i, c, code);
 	return (count);
 }
 
@@ -76,9 +76,9 @@ char	**ft_split_wquots(char *args) //ft_split_wquots
 	acc = ft_word_count_up(args, "  ", 0);
 	splited = malloc(sizeof(char *) * (acc + 1));
 	if (!splited)
-		ft_error(NULL, 1); //?????????
+		ft_error(NULL, 1);
 	splited[acc] = NULL;
-	is_it_quot(' ', 1); //??????????
+	ft_where_quot(' ', 1);
 	ft_maker_for_strings(acc, args, splited);
 	return (splited);
 }

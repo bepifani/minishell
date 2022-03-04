@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 16:25:19 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/03 16:45:55 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/04 14:30:38 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_pipe_to_str(t_info *info, int *i, int *j) //pipe_to_string
 	size = ft_strlen(info->splited[(*i)]) + 1;
 	new_line = malloc(sizeof(char) * (size + 1));
 	if (!new_line)
-		ft_error(info, 1); //???
+		ft_error(info, 1);
 	new_line = ft_strjoin(new_line, info->splited[(*i)]);
 	new_line[ft_strlen(new_line)] = ' ';
 	new_line[ft_strlen(new_line) + 1] = '\0';
@@ -88,7 +88,7 @@ int	ft_swap_ask(t_info *info, int index, int i) //ft_swap_ask
 
 	digit = ft_itoa(g_error);
 	if (!digit)
-		return (ft_error(info, 1)); //?????????
+		return (ft_error(info, 1));
 	info->splited[index] = ft_import(info->splited[index], digit, i, ft_strlen(digit) + 1); //?????
 	return (ft_strlen(digit) - 1);
 }

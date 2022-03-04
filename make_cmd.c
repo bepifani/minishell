@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 16:59:59 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/04 13:27:15 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/04 14:25:38 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ char	**ft_create_mas(t_info *info, int *j) //ft_create_node
 	(*j) = i + 1;
 	lnew_line = ft_calloc(size + 1, sizeof(char *));
 	if (lnew_line == NULL)
-		ft_error(NULL, 1); //???????
+		ft_error(NULL, 1);
 	i = 0;
 	while (i + tmp < tmp + size)
 	{
@@ -69,15 +69,15 @@ char	***ft_create_cmd(t_info *info) //ft_createrofcmd
 	i = 0;
 	order = 0;
 	new_mas = NULL;
-	len = find_com_count(info->commands); //?????????
+	len = ft_com_counter(info->commands);
 	if (len != 0)
 	{
 		new_mas = ft_calloc(len + 1, sizeof(char **));
 		if (new_mas == NULL)
-			ft_error(NULL, 1); //??????????
+			ft_error(NULL, 1);
 		while (i < len)
 		{
-			new_mas[i] = ft_create_node(info, &order); //????????
+			new_mas[i] = ft_create_mas(info, &order);
 			i++;
 		}
 		new_mas[i] = NULL;

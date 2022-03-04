@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 13:58:51 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/04 14:01:24 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/04 14:10:48 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	ft_false_redir(char *s, int i) //err_redd
 {
 	int	j;
 
-	is_it_quot(' ', 1); //????????????
+	ft_where_quot(' ', 1);
 	while (s[i + 1] == ' ' && s[i + 1])
 		i++;
 	j = i + 1;

@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 17:02:01 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/02 14:30:07 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/04 14:37:01 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ size_t ft_words(char *str, char *c, int code) //ft_word_count_up
 	answ = 0;
 	i = 0;
 	ft_where_quot(str[i], 1);
-	answ = ft_helper_for_words(str, i, c, code); //ft_parser_split_helper
+	answ = ft_helper_for_words(str, i, c, code);
 	return (answ);	
 }
 
@@ -108,41 +108,5 @@ char	**ft_split_for_words(char *str1, char *str2) //ft_split_up
 		i++;
 	}
 	mas[i] = NULL;
-	return (mas);
-}
-
-char	*ft_redir1(char *str)
-{
-	int i;
-	char *s;
-
-	i = 0;
-	s = NULL;
-	while (str[i] != ' ' && str[i] != '|' && str[i] != '<' && str[i] != '>' && str[i]) 
-		i++;
-	s = malloc(sizeof(char) * i + 1);
-	i = 0;
-	while (str[i] != ' ' && str[i] != '|' && str[i] != '<' && str[i] != '>' && str[i])
-	{
-		s[i] = str[i]; 
-		i++;
-	}
-	//free(str);
-	s[i] = '\0';
-	return (s);
-}
-
-char	**ft_split_to_pipe(t_info *info)
-{
-	char	**mas;
-
-	mas = NULL;
-	info->cmd = NULL;
-	mas = ft_split(info->line, '|');
-	printf("tyt\n");
-	//(info->cmd)[0][0] = NULL;
-	printf("%s.\n", ft_redir1(mas[0]));
-	(info->cmd)[0][0] = ft_redir1(mas[0]);
-	printf("%s\n", info->cmd[0][0]);
 	return (mas);
 }

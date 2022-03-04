@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 15:23:41 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/02 16:59:24 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/04 14:29:25 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,13 @@ void	ft_make_redir(t_info *info, char *str, int pos) //ft_create_l
 
 		if (str[i] == '<')
 		{
-			name = ft_find_name(str, i, '<'); //find_name_len
-			buf = ft_remake(info, i, name, pos); //ft_rebilder
-			info->commands[pos - 1] = ft_gnl_strjoin(info->commands[pos - 1], buf); //ft_gnlstrjoin
+			name = ft_find_name(str, i, '<');
+			buf = ft_remake(info, i, name, pos);
+			info->commands[pos - 1] = ft_gnl_join(info->commands[pos - 1], buf);
 			if (buf != NULL)
 				free(buf);
 			if (info->commands[pos - 1] == ';')
-				info->commands[pos - 1] = ft_skiper(info->commands[pos - 1]); //ft_skipsimic
+				info->commands[pos - 1] = ft_skiper(info->commands[pos - 1]);
 			break ;
 		}
 		i--;
@@ -64,13 +64,13 @@ void	ft_make_redir2(t_info *info, char *str, int pos) //ft_create_ll
 	{
 		if (str[i] == '<' && str[i + 1] == '<')
 		{
-			name = ft_find_name(str, i, '<'); //find_name_len
-			buf = ft_remake(info, i, name, pos); //ft_rebilder
-			info->commands[pos - 1] = ft_gnl_strjoin(info->commands[pos - 1], buf); //ft_gnlstrjoin
+			name = ft_find_name(str, i, '<');
+			buf = ft_remake(info, i, name, pos);
+			info->commands[pos - 1] = ft_gnl_join(info->commands[pos - 1], buf);
 			if (buf != NULL)
 				free(buf);
 			if (info->commands[pos - 1] == ';')
-				info->commands[pos - 1] = ft_skiper(info->commands[pos - 1]); //ft_skipsimic
+				info->commands[pos - 1] = ft_skiper(info->commands[pos - 1]);
 			break ;
 		}
 		i++;
@@ -90,8 +90,8 @@ void	ft_make_redir3(t_info *info, char *str, int q) //ft_create_r
 	{
 		if (str[i] == '>')
 		{
-			name = ft_find_name(str, i, '>'); //find_name_len
-			buf = ft_remake(info, i, name, q); //ft_rebilder
+			name = ft_find_name(str, i, '>');
+			buf = ft_remake(info, i, name, q);
 			if (info->commands[q + 1] != NULL)
 				free(info->commands[q + 1]);
 			info->commands[q + 1] = buf;
@@ -114,11 +114,11 @@ void	ft_maker_commands(t_info *info) //ft_rebildredir
 		if (info->commands[i][0] != ';')
 		{
 			while (ft_strnstr(info->commands[i], "<<", ft_strlen(info->commands[i])))
-				ft_make_redir2(info, info->commands[i], i); //ft_create_ll
-			while (ft_str_redirs(info->commands[i], '<')) //ft_strrchr_upred
-				ft_make_redir(info, info->commands[i], i); //ft_create_l
-			while (ft_str_redirs(info->commands[i], '>')) //ft_strrchr_upred
-				ft_make_redir3(info, info->commands[i], i); //ft_create_r
+				ft_make_redir2(info, info->commands[i], i);
+			while (ft_str_redirs(info->commands[i], '<'))
+				ft_make_redir(info, info->commands[i], i); 
+			while (ft_str_redirs(info->commands[i], '>'))
+				ft_make_redir3(info, info->commands[i], i);
 		}
 		if (info->commands[i + 1] && info->commands[i + 2])
 			i = i + 2;
