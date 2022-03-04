@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 15:23:41 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/04 14:52:08 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/04 15:05:07 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ void	ft_make_redir3(t_info *info, char *str, int q) //ft_create_r
 			info->commands[q + 1] = buf;
 			while ((info->commands[q + 1][j] == '>' || info->commands[q + 1][j] == ' ') && info->commands[q  + 1][j])
 				j++;
-			ft_opening(info->commands[q + 1], &info->commands[q + 1][j], 0); //open_file_h
+			open_file_h(info->commands[q + 1], &info->commands[q + 1][j], 0); //open_file_h
 			break ;
 		}
 		i++;

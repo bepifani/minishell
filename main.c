@@ -6,31 +6,51 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 16:54:50 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/04 14:45:38 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/04 15:35:35 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int main (int argc, char **argv, char **envp)
+int	ft_parsing(t_info *st)
 {
-	t_info	info;
-	
-	(void)argv;
-	(void)envp;
-	if (argc == 1)
+	int	i;
+
+	i = 0;
+	ft_reinit_pip(st);
+	st->line = readline("minishell> ");
+	if (st->line == NULL)
+		ft_sigex(st);
+	if (st->line[0] == '\0')
+		return (ft_mshfree1(st, 1, -1));
+	if (*st->line && ft_strlen(st->line))
+		add_history(st->line);
+	if (ft_space_check(st->line))
+		return (ft_mshfree1(st, 1, -1));
+	if (ft_big_checker(st) == 1)
+		return (ft_mshfree1(st, 1, 2));
+	if (st->cmd == NULL)
+		return (ft_mshfree1(st, 1, 1));
+	signal(SIGINT, sig_void);
+	if (st->cmd == NULL)
+		ft_skiper3(st);
+	else
+		pipex(st->cmd, st);
+	ft_mshfree1(st, 2, 0);
+	return (0);
+}
+
+int	main(int argc, char **argv, char **envp)
+{
+	t_info	st;
+
+	ft_init(&st, argc, argv);
+	set_envp(&st, envp);
+	while (!st.exit)
 	{
-		info.line = readline(PROMPT);
-		ft_echo(&info.line);
-		//ft_pwd();
+		signal(SIGINT, sig_handler);
+		signal(SIGQUIT, sig_handler);
+		ft_parsing(&st);
 	}
-	// int a;
-	// a = ft_check_scobe(&info);
-	// a = ft_check_pipe(&info);
-	char **massiv;
-	massiv = NULL;
-	//massiv = malloc (1000);
-	//massiv = ft_split_to_pipe(&info);
-	printf ("0 =%s)\n1 =%s)\n2 =%s)\n", massiv[0], massiv[1], massiv[2]);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 16:36:14 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/04 14:47:48 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/04 15:58:41 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,18 @@
 # define PROMPT "minishell> "
 
 # include "./bible2/libft.h"
-# include <unistd.h>
-# include <stdio.h>
-# include <limits.h>
-# include <stdlib.h>
-# include <fcntl.h>              
-# include <sys/types.h>
 # include <sys/wait.h>
+# include <stdio.h>
 # include <readline/readline.h>
 # include <readline/history.h>
-# include <stdbool.h>
+# include <errno.h>
+# include <stdlib.h>
+# include <unistd.h>
+# include <signal.h>
+# include <fcntl.h>
+# include <dirent.h>
+# include <limits.h>
+# define BUFFER_SIZE 1
 
 int	g_error;
 
@@ -50,6 +52,7 @@ typedef struct s_info {
 	int		count;
 	int		pid;
 	int		*last_r;
+	t_list	*vars;
 	t_pip	pip;
 }	t_info;
 
@@ -142,5 +145,64 @@ int		ft_get_size_of_line(char *args, int *i); 						//get_interval_len
 void	ft_maker_for_strings(int acc, char *args, char **splited); 		//make_strings
 size_t	ft_word_count_up(char *s, char *c, int code); 					//ft_word_count_up2
 char	**ft_split_wquots(char *args); 									//ft_split_wquots
+
+
+int	cmd_count(t_info *info);
+void	ft_set_read(int *lpipe, int in);
+void	ft_set_write(int *rpipe, int out);
+int	pipa_helper(char *arg, t_info *info);
+void	do_redir_right(char **cmd, int *rpipe, t_info *info);
+void	redirect_r(char *cmd, t_info *st);
+int	ft_echo(char **line);
+int set_envp(t_info *info, char **envp);
+void    ft_env(t_info *info);
+int	ft_pwd(void);
+int ft_error(t_info *info, int i);
+char	*find_path(char *cmd, char **envp);
+void	ft_print_err_exec(char *cmd);
+char	**ft_exitt(char *cmd);
+void	execute(char *cmd, t_info *info);
+void ft_init(t_info *st,  int argc, char **argv);
+int ft_strcmp(char *str1, char *str2);
+void	here_doc(char *limitter);
+void	ft_do_redir_left_deep(t_info *info, int in);
+void	do_redir_left(char **cmd, int *lpipe, t_info *info);
+void	do_redir_right(char **cmd, int *rpipe, t_info *info);
+void	do_command(char **cmd, int *rpipe, t_info *info);
+void	**ft_myfree(char **str);
+void	ft_exit(char *argv, t_info *info);
+void	sig_handler(int sig);
+void	sig_void(int sig);
+void	sig_void2(int sig);
+int	fork_and_chain(int *lpipe, int *rpipe, char **cmd, t_info *info);
+void	pipex(char ***cmd, t_info *info);
+int	open_file_h(char *redir, char *file, int flag);
+int	check_name_var(char *str);
+int	ft_delelem(t_list **vars);
+int	ft_unset_print_err(char **splited, int i);
+void	ft_inset_helper(char *splited_i, int len, t_info *st);
+int	ft_unset(char *var, t_info *st);
+int	ft_space_check(char *s);
+int	ft_mshfree1(t_info *st, int code, int exc);
+void	ft_mshfree_helper(int exc, t_info *st);
+int	ft_strrchr_deep(char *s, int c);
+void	ft_last_redd(t_info *st, char *s, int index);
+void	ft_last_red(t_info *st, char **s);
+int	ft_getlen(char *splited);
+int	ft_changevar(char **splited, t_list **vars, int len);
+char	*find_env(char *var, t_info *st);
+int	ft_cd_minus(t_info *st);
+int	ft_cd_deep_helper(char *current_dir, t_info *st, char **splited);
+int	ft_cd_helper(t_info *st, char **splited);
+int	ft_cd(char *args, t_info *st);
+void	ft_reinit_pip(t_info *st);
+void	ft_sigex(t_info *st);
+int	ft_print_export(t_info *st);
+int	ft_export_helper(t_info *st, char **splited, int i, int len);
+int	ft_export_print_err(char **splited, int i);
+int	ft_export(char *var, t_info *st);
+int	contain(char **str);
+int	redirect_l(char *cmd, t_info *info);
+int	ft_check_buildins(char **cmd, t_info *st, int count);
 
 #endif

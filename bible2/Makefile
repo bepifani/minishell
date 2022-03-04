@@ -6,7 +6,7 @@
 #    By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/05 11:48:01 by bepifani          #+#    #+#              #
-#    Updated: 2022/02/15 17:09:37 by bepifani         ###   ########.fr        #
+#    Updated: 2022/03/04 15:45:06 by bepifani         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ SRC = 	ft_atoi		ft_bzero	ft_isalnum	ft_isalpha\
 		ft_putendl_fd	ft_putnbr_fd	ft_lstnew\
 		ft_lstadd_front	ft_lstsize	ft_lstlast\
 		ft_lstadd_back	ft_lstdelone	ft_lstclear\
-		ft_lstiter	ft_lstmap
+		ft_lstiter	ft_lstmap 1export.c
 
 SRCS = $(addsuffix .c, $(SRC))
 

@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 13:37:14 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/04 14:45:21 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/04 15:27:02 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,7 +123,7 @@ int	ft_big_checker(t_info *info) //ft_com_check
 		return (ft_error(info, 4));
 	info->splited = ft_split_for_words(info->line, "|");
 	ft_first_comm(info);
-	if (ft_semicolon(info->splited)) //????????????
+	if (ft_colon(info->splited))
 	{
 		ft_myfree(info->splited); //??????????????
 		return (ft_error(info, 4));
@@ -135,7 +135,7 @@ int	ft_big_checker(t_info *info) //ft_com_check
 	ft_last_red(info, info->commands); //???????????
 	ft_maker_commands(info);
 	ft_cutter(info);
-	info->commands = get_modif_arg(info->commands);
+	info->commands = ft_get_modif_arg(info->commands);
 	info->commands = ft_mas_from_arr(info->commands);
 	info->cmd = ft_create_cmd(info);
 	if (info->splited)
