@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 16:36:14 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/04 13:56:09 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/04 14:06:38 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,5 +145,14 @@ int		ft_swap_symbols(t_info *info, int index, int i); 				//ft_swap_env
 int		ft_checker_for_pipes(t_info *info); 							//ft_check_pipes
 void	ft_cutter(t_info *info); 										//ft_cutter
 
+//checkr_redirect.c
+int		ft_false_redir(char *s, int i); 								//err_redd
+int		ft_check_reddir(t_info *info); 									//ft_check_reddir
+
+//split3.c
+int		ft_get_size_of_line(char *args, int *i); 						//get_interval_len
+void	ft_maker_for_strings(int acc, char *args, char **splited); 		//make_strings
+size_t	ft_word_count_up(char *s, char *c, int code); 					//ft_word_count_up2
+char	**ft_split_wquots(char *args); 									//ft_split_wquots
 
 #endif
