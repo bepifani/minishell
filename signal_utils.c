@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 13:17:03 by nbyrd             #+#    #+#             */
-/*   Updated: 2022/03/04 15:59:38 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/04 17:21:04 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	sig_void2(int sig)
 	g_error = 1;
 	rl_on_new_line();
 	rl_redisplay();
-	//rl_catch_signals = 0;
+	rl_catch_signals = 0;
 	close(0);
 	exit(0);
 }

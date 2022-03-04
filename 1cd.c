@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 15:28:16 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/04 15:30:11 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/04 17:36:15 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	ft_cd_minus(t_info *st)
 	if (chdir(prev_dir) != 0)
 	{
 		free(prev_dir);
-		ft_error_cmd("cd: ", NULL, errno);
+		ft_error2("cd: ", NULL, errno);
 		return (1);
 	}
 	else
@@ -76,7 +76,7 @@ int	ft_cd_helper(t_info *st, char **splited)
 	if (chdir(splited[1]) != 0)
 	{
 		free(current_dir);
-		ft_error_cmd("cd", splited[1], errno);
+		ft_error2("cd", splited[1], errno);
 		ft_myfree(splited);
 		return (1);
 	}

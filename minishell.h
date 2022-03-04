@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 16:36:14 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/04 15:58:41 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/04 18:17:13 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,7 +154,7 @@ int	pipa_helper(char *arg, t_info *info);
 void	do_redir_right(char **cmd, int *rpipe, t_info *info);
 void	redirect_r(char *cmd, t_info *st);
 int	ft_echo(char **line);
-int set_envp(t_info *info, char **envp);
+int set_envp(t_info *info, char **envp, int counter);
 void    ft_env(t_info *info);
 int	ft_pwd(void);
 int ft_error(t_info *info, int i);
@@ -162,14 +162,14 @@ char	*find_path(char *cmd, char **envp);
 void	ft_print_err_exec(char *cmd);
 char	**ft_exitt(char *cmd);
 void	execute(char *cmd, t_info *info);
-void ft_init(t_info *st,  int argc, char **argv);
+void	ft_init(t_info *st, int arg1, char **arg2, char **arg3);
 int ft_strcmp(char *str1, char *str2);
 void	here_doc(char *limitter);
 void	ft_do_redir_left_deep(t_info *info, int in);
 void	do_redir_left(char **cmd, int *lpipe, t_info *info);
 void	do_redir_right(char **cmd, int *rpipe, t_info *info);
 void	do_command(char **cmd, int *rpipe, t_info *info);
-void	**ft_myfree(char **str);
+char	**ft_myfree(char **str);
 void	ft_exit(char *argv, t_info *info);
 void	sig_handler(int sig);
 void	sig_void(int sig);
@@ -204,5 +204,13 @@ int	ft_export(char *var, t_info *st);
 int	contain(char **str);
 int	redirect_l(char *cmd, t_info *info);
 int	ft_check_buildins(char **cmd, t_info *st, int count);
+void	sig_void2(int sig);
+void	sig_void(int sig);
+void	sig_handler(int sig);
+void	set_shlvl(t_info *st);
+int	ft_cd_minus_helper(char *prev_dir, t_info *st);
+int	check_name_var(char *str);
+int sizer(char **envp);
+
 
 #endif

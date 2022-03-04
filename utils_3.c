@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   utils_3.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nbyrd <nbyrd>                              +#+  +:+       +#+        */
+/*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 09:49:51 by nbyrd             #+#    #+#             */
-/*   Updated: 2022/03/03 09:49:51 by nbyrd            ###   ########.fr       */
+/*   Updated: 2022/03/04 17:34:10 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	**ft_myfree(char **str)
+char	**ft_myfree(char **str)
 {
 	int	i;
 
@@ -24,4 +24,5 @@ void	**ft_myfree(char **str)
 		i++;
 	}
 	free(str);
+	return (NULL);
 }

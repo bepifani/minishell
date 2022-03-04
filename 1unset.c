@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 15:10:06 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/04 15:14:56 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/04 17:26:38 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ int	ft_unset(char *var, t_info *st)
 		i++;
 		len = ft_strlen(splited[i]);
 	}
-	set_envp(st);
+	set_envp(st, st->env);
 	ft_myfree(splited);
 	return (0);
 }

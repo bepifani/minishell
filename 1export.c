@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 15:43:12 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/04 15:44:10 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/04 17:49:57 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,10 +69,14 @@ int	ft_export(char *var, t_info *st)
 	int		i;
 
 	i = 1;
+	printf("RUSSIA0\n");
 	splited = ft_split_wquots(var);
+	printf("RUSSIA1\n");
 	len = ft_getlen(splited[i]);
+	printf("RUSSIA2\n");
 	if (len == 0)
 		return (ft_print_export(st));
+	printf("RUSSIA3\n");
 	while (splited[i])
 	{
 		if (!ft_export_print_err(splited, i))
@@ -82,7 +86,9 @@ int	ft_export(char *var, t_info *st)
 		i++;
 		len = ft_getlen(splited[i]);
 	}
+	printf("RUSSIA4\n");
 	set_envp(st, st->env);
+	printf("RUSSIA5\n");
 	ft_myfree(splited);
 	return (0);
 }

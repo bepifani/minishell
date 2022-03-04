@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 16:54:50 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/04 15:35:35 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/04 18:32:49 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,31 @@ int	ft_parsing(t_info *st)
 	return (0);
 }
 
+int sizer(char **envp)
+{
+    int i;
+
+    i = 0;
+	printf("QWERT\n");
+	printf("%s\n", envp[0]);
+    while (envp[i])
+        i++;
+	printf("QWERT2\n");
+    return (i);
+}
 int	main(int argc, char **argv, char **envp)
 {
 	t_info	st;
+	int	i;
 
-	ft_init(&st, argc, argv);
-	set_envp(&st, envp);
+	i = sizer(envp);
+	printf("%p\n", envp);
+	ft_init(&st, argc, argv, envp);
+	printf("after init %p\n", envp);
+
+	printf("1\n");
+	set_envp(&st, envp, i);
+	printf("2\n");
 	while (!st.exit)
 	{
 		signal(SIGINT, sig_handler);

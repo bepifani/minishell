@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 15:23:13 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/04 15:24:03 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/04 17:25:56 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ int	ft_strrchr_deep(char *s, int c)
 
 	b = (char *)s;
 	i = ft_strlen(s) + 1;
-	is_it_quot(' ', 1);
+	ft_where_quot(' ', 1);
 	while (i--)
 	{
-		if ((is_it_quot(b[i], 0) == 0) && b[i] == (char) c)
+		if ((ft_where_quot(b[i], 0) == 0) && b[i] == (char) c)
 		{
 			return (i);
 		}
