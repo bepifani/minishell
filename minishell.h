@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 16:36:14 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/04 13:46:48 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/04 13:56:09 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,5 +137,13 @@ int		ft_colon(char **sst); 											//ft_semicolon
 int		ft_check_spaces(t_info *info); 									//check_space_inquot
 void	ft_opendollar(t_info *info); 									//ft_opendollar
 int		ft_big_checker(t_info *info); 									//ft_com_check
+
+//checker_utils.c
+char	*ft_import(char *st, char *str, int i, int j); 					//ft_import
+int		ft_enver(t_info *info, int index, int i, int j); 				//ft_enver
+int		ft_swap_symbols(t_info *info, int index, int i); 				//ft_swap_env
+int		ft_checker_for_pipes(t_info *info); 							//ft_check_pipes
+void	ft_cutter(t_info *info); 										//ft_cutter
+
 
 #endif
