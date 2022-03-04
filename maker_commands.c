@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 15:23:41 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/04 14:29:25 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/04 14:52:08 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	ft_make_redir(t_info *info, char *str, int pos) //ft_create_l
 			info->commands[pos - 1] = ft_gnl_join(info->commands[pos - 1], buf);
 			if (buf != NULL)
 				free(buf);
-			if (info->commands[pos - 1] == ';')
+			if (info->commands[pos - 1][0] == ';')
 				info->commands[pos - 1] = ft_skiper(info->commands[pos - 1]);
 			break ;
 		}
@@ -69,7 +69,7 @@ void	ft_make_redir2(t_info *info, char *str, int pos) //ft_create_ll
 			info->commands[pos - 1] = ft_gnl_join(info->commands[pos - 1], buf);
 			if (buf != NULL)
 				free(buf);
-			if (info->commands[pos - 1] == ';')
+			if (info->commands[pos - 1][0] == ';')
 				info->commands[pos - 1] = ft_skiper(info->commands[pos - 1]);
 			break ;
 		}

@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 16:36:14 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/04 14:10:12 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/04 14:47:48 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ typedef struct s_info {
 	int		count;
 	int		pid;
 	int		*last_r;
-	//t_vars	*vars;
 	t_pip	pip;
 }	t_info;
 
