@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 16:36:14 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/03 16:49:20 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/03 17:01:32 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,5 +115,12 @@ int		ft_checker_env(char *str); 										//ft_checkenv_d
 int		ft_swap_ask(t_info *info, int index, int i); 					//ft_swap_ask
 
 //error.c
+int		ft_skiper3(t_info *info); 										//ft_skip
+int		ft_error(t_info *info, int c); 									//ft_error
+void	ft_error2(char *srt, char *arg, int i); 						//ft_error_cmd
+void	ft_error3(int i); 												//ft_convert_error
+
+//make_cmd.c
+
 
 #endif

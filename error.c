@@ -6,13 +6,13 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 16:49:32 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/03 16:56:16 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/03 16:58:59 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int	ft_skiper(t_info *info) //ft_skip
+int	ft_skiper3(t_info *info) //ft_skip
 {
 	if (info && info->line != NULL)
 		free(info->line);
