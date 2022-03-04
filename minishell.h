@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 16:36:14 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/03 17:01:32 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/04 13:46:48 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,6 +121,21 @@ void	ft_error2(char *srt, char *arg, int i); 						//ft_error_cmd
 void	ft_error3(int i); 												//ft_convert_error
 
 //make_cmd.c
+int		ft_com_counter(char **mas); 									//find_com_count
+char	**ft_create_mas(t_info *info, int *j); 							//ft_create_node
+char	***ft_create_cmd(t_info *info); 								//ft_createrofcmd
 
+//make_cmd_utils.c
+char	**ft_get_modif_arg(char **argv); 								//get_modif_arg
+char	**ft_add_string(char **arr, char *str); 						//ft_add_string
+void	ft_mas_from_arr_helper(char *s, int *c, int *len); 				//foo_helper
+char	**ft_mas_from_arr(char **arr); 									//foo_bar
+
+//checker.c
+int		ft_where_is_quot(char *s); 										//ft_quot
+int		ft_colon(char **sst); 											//ft_semicolon
+int		ft_check_spaces(t_info *info); 									//check_space_inquot
+void	ft_opendollar(t_info *info); 									//ft_opendollar
+int		ft_big_checker(t_info *info); 									//ft_com_check
 
 #endif
