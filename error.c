@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 16:49:32 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/05 16:55:14 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/05 19:55:56 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	ft_error2(char *srt, char *arg, int i) //ft_error_cmd
 		if (i == 13)
 			ft_putstr_fd("is a directory", 2);
 		else
-			ft_putstr_fd(strerror(i), 2);  //?????????????
+			ft_putstr_fd(strerror(i), 2);
 	}
 	write(2, "\n", 1);
 }

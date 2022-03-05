@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 17:02:56 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/02 17:35:32 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/05 19:53:35 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,8 @@ char	*ft_remake(t_info *info, int i, int name, int pos) //ft_rebilder
 	line1 = ft_substr(info->commands[pos], 0, i);
 	line = ft_substr(info->commands[pos], i, name);
 	line2 = line1;
-	line3 = ft_substr(info->commands[pos], i + name, (ft_strlen(info->commands[pos]) - i - name));
+	line3 = ft_substr(info->commands[pos], i + name, \
+			(ft_strlen(info->commands[pos]) - i - name));
 	line1 = ft_strjoin(line1, line3);
 	if (info->commands[pos] != NULL)
 		free (info->commands);

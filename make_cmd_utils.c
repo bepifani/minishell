@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 13:29:56 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/04 14:24:31 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/05 19:57:02 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ char	**ft_get_modif_arg(char **argv) //get_modif_arg
 		if (ft_strncmp(argv[n], ";", 1) && argv[n][0] != '\0')
 			modif_arg[acc++] = ft_strdup(argv[n]);
 	if (argv)
-		ft_myfree(argv);//?????????????????
+		ft_myfree(argv);
 	return (modif_arg);
 }
 
@@ -57,7 +57,7 @@ char	**ft_add_string(char **arr, char *str) //ft_add_string
 	}
 	result[n] = ft_strdup(str);
 	if (arr)
-		ft_myfree(arr);//???????????????
+		ft_myfree(arr);
 	if (str)
 		free(str);
 	return (result);
@@ -102,6 +102,6 @@ char	**ft_mas_from_arr(char **arr) //foo_bar
 		}
 		n++;
 	}
-	ft_myfree(arr); //????????
+	ft_myfree(arr);
 	return (res);
 }

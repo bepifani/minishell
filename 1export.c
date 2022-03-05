@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 15:43:12 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/05 17:20:05 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/05 18:27:13 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ int	ft_export_helper(t_info *st, char **splited, int i, int len)
 
 int	ft_export_print_err(char **splited, int i)
 {
-	printf("splited[i] %s\n", splited[i]);
 	if (!check_name_var(splited[i]))
 	{
 		ft_putstr_fd("export: ", 2);
@@ -71,18 +70,14 @@ int	ft_export(char *var, t_info *st)
 
 	i = 1;
 	splited = ft_split_wquots(var);
-	printf("%s\n", splited[0]);
 	len = ft_getlen(splited[i]);
 	if (len == 0)
 		return (ft_print_export(st));
 	while (splited[i])
 	{
-		printf("splited2[i] %s\n", splited[i]);
 		if (!ft_export_print_err(splited, i))
-		{
-			printf("KSADJK\n");
 			return (1);
-		}
+		
 		if (!ft_export_helper(st, splited, i, len))
 			ft_lstadd_back(&(st->vars), ft_lstnew(ft_strdup(splited[i])));
 		i++;

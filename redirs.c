@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 13:47:43 by nbyrd             #+#    #+#             */
-/*   Updated: 2022/03/04 15:58:03 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/05 18:22:41 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ int	redirect_l(char *cmd, t_info *info)
 	}
 	return (info->pip.in);
 }
+
 void	here_doc(char *limitter)
 {
 	int	fd;

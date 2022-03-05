@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 14:38:56 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/02 15:12:23 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/05 18:31:49 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,8 @@ int	ft_helper_for_words(char *str1, int i, char *str2, int c) //ft_parser_split_
 		if (str1[i] != '\0' && (str1[i] != str2[0] && str1[i] != str2[1]))
 		{
 			counter++;
-			while (str1[i] != '\0' && (ft_where_quot(str1[i], 0) || (str1[i] != str2[0] && str1[i] != str2[1])))
+			while (str1[i] != '\0' && (ft_where_quot(str1[i], 0)
+					|| (str1[i] != str2[0] && str1[i] != str2[1])))
 			{
 				if (c == 1 && ft_where_quot(str1[i], 2) == 0 && str1[i] == '|')
 				{

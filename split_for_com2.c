@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 16:25:19 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/04 14:30:38 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/05 20:45:31 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,7 @@ int	ft_swap_ask(t_info *info, int index, int i) //ft_swap_ask
 	digit = ft_itoa(g_error);
 	if (!digit)
 		return (ft_error(info, 1));
-	info->splited[index] = ft_import(info->splited[index], digit, i, ft_strlen(digit) + 1); //?????
+	info->splited[index] = ft_import(info->splited[index], \
+		digit, i, ft_strlen(digit) + 1);
 	return (ft_strlen(digit) - 1);
 }

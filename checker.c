@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 13:37:14 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/04 15:27:02 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/05 20:02:15 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,7 @@ void	ft_opendollar(t_info *info) //ft_opendollar
 
 int	ft_big_checker(t_info *info) //ft_com_check
 {
-	//signal(SIGINT, sig_void);
+	signal(SIGINT, sig_void);
 	if (ft_where_is_quot(info->line))
 		return (ft_error(info, 4));
 	if (ft_checker_for_pipes(info) || ft_check_reddir(info))
@@ -125,14 +125,14 @@ int	ft_big_checker(t_info *info) //ft_com_check
 	ft_first_comm(info);
 	if (ft_colon(info->splited))
 	{
-		ft_myfree(info->splited); //??????????????
+		ft_myfree(info->splited);
 		return (ft_error(info, 4));
 	}
-	ft_opendollar(info); //???????????????????
+	ft_opendollar(info);
 	g_error = 0;
 	if (!ft_add_pipe(info))
 		return (ft_error(info, 1));
-	ft_last_red(info, info->commands); //???????????
+	ft_last_red(info, info->commands);
 	ft_maker_commands(info);
 	ft_cutter(info);
 	info->commands = ft_get_modif_arg(info->commands);

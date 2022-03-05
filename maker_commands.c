@@ -6,24 +6,26 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 15:23:41 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/04 15:05:07 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/05 20:38:45 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int	ft_str_redirs(char *str, int q) //ft_strrchr_upred
+int	ft_str_redirs(char *s, int c) //ft_strrchr_upred
 {
 	size_t	i;
-	char	*s;
+	char	*b;
 
-	i = ft_strlen(str) + 1;
-	s = (char *)str;
+	b = (char *)s;
+	i = ft_strlen(s) + 1;
 	ft_where_quot(' ', 1);
-	while (i-- > 0)
+	while (i--)
 	{
-		if (s[i] == (char)q && ft_where_quot(s[i], 0))
+		if ((ft_where_quot(b[i], 0) == 0) && b[i] == (char) c)
+		{
 			return (1);
+		}
 	}
 	return (0);
 }
@@ -60,14 +62,14 @@ void	ft_make_redir2(t_info *info, char *str, int pos) //ft_create_ll
 	char	*buf;
 
 	i = 0;
-	while (str[i] != '\0')
+	while (str[i])
 	{
 		if (str[i] == '<' && str[i + 1] == '<')
 		{
 			name = ft_find_name(str, i, '<');
 			buf = ft_remake(info, i, name, pos);
 			info->commands[pos - 1] = ft_gnl_join(info->commands[pos - 1], buf);
-			if (buf != NULL)
+			if (buf)
 				free(buf);
 			if (info->commands[pos - 1][0] == ';')
 				info->commands[pos - 1] = ft_skiper(info->commands[pos - 1]);
@@ -86,7 +88,7 @@ void	ft_make_redir3(t_info *info, char *str, int q) //ft_create_r
 
 	i = 0;
 	j = 0;
-	while (str[i] != '\0')
+	while (str[i])
 	{
 		if (str[i] == '>')
 		{
@@ -95,9 +97,11 @@ void	ft_make_redir3(t_info *info, char *str, int q) //ft_create_r
 			if (info->commands[q + 1] != NULL)
 				free(info->commands[q + 1]);
 			info->commands[q + 1] = buf;
-			while ((info->commands[q + 1][j] == '>' || info->commands[q + 1][j] == ' ') && info->commands[q  + 1][j])
+			while ((info->commands[q + 1][j] == '>' 
+				|| info->commands[q + 1][j] == ' ') && info->commands[q  + 1][j])
 				j++;
-			open_file_h(info->commands[q + 1], &info->commands[q + 1][j], 0); //open_file_h
+			open_file_h(info->commands[q + 1], \
+				&info->commands[q + 1][j], 0);
 			break ;
 		}
 		i++;
@@ -108,20 +112,21 @@ void	ft_maker_commands(t_info *info) //ft_rebildredir
 {
 	int	i;
 
-	i = 0;
-	while (info->commands[i] != NULL)
+	i = 1;
+	while (info->commands[i])
 	{
 		if (info->commands[i][0] != ';')
 		{
-			while (ft_strnstr(info->commands[i], "<<", ft_strlen(info->commands[i])))
+			while (ft_strnstr(info->commands[i], "<<", \
+				ft_strlen(info->commands[i])))
 				ft_make_redir2(info, info->commands[i], i);
 			while (ft_str_redirs(info->commands[i], '<'))
-				ft_make_redir(info, info->commands[i], i); 
+				ft_make_redir(info, info->commands[i], i);
 			while (ft_str_redirs(info->commands[i], '>'))
 				ft_make_redir3(info, info->commands[i], i);
 		}
 		if (info->commands[i + 1] && info->commands[i + 2])
-			i = i + 2;
+			i += 2;
 		if (info->commands[i + 1] != NULL)
 			i++;
 		if (info->commands[i + 1] != NULL)

@@ -6,7 +6,7 @@
 #    By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/15 16:34:08 by bepifani          #+#    #+#              #
-#    Updated: 2022/03/04 17:41:34 by bepifani         ###   ########.fr        #
+#    Updated: 2022/03/05 20:57:03 by bepifani         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,11 +36,11 @@ $(NAME): $(OBJS) $(LIBFT) minishell.h Makefile
 					$(GCC) $(CFLAGS) -c $< -o $@ -I$(INCLUDE_SYS)
 							
 $(LIBFT):
-	make -C ./libft_l/ bonus
+	make -C ./bible2/ bonus
 
 clean:
 	rm -f $(OBJS) $(OBJSB)
-	make -C ./libft_l/ fclean
+	make -C ./bible2/ fclean
 
 fclean: clean
 	rm -f $(NAME)

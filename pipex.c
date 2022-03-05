@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 12:03:11 by zafar             #+#    #+#             */
-/*   Updated: 2022/03/04 15:56:24 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/05 20:07:41 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ void	pipex(char ***cmd, t_info *info)
 	int	pid;
 	int	status;
 
+	
 	count = cmd_count(info);
 	i = 1;
 	info->count = count;

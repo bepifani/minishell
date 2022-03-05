@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 17:02:01 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/04 14:37:01 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/05 18:30:40 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,14 +76,13 @@ char	**ft_free_mas(char **mas) //ft_mmyfree_up
 	i = 0;
 	while (mas[i])
 	{
-		if (mas[i])
-			free (mas[i]);
-		mas[i] = NULL;
+		free(mas[i]);
 		i++;
 	}
-	free (mas);
+	free(mas);
 	return (NULL);
 }
+
 
 char	**ft_split_for_words(char *str1, char *str2) //ft_split_up
 {

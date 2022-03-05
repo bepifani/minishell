@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 14:56:51 by nbyrd             #+#    #+#             */
-/*   Updated: 2022/03/05 16:09:50 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/05 20:42:11 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	set_envp(t_info *st)
 
 	count = ft_lstsize(st->vars);
 	new_env = malloc(sizeof(char *) * (count + 1));
+	
 	if (!new_env)
 		return (ft_error(st, 1));
 	new_env[count] = NULL;
