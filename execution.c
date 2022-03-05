@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 17:13:25 by nbyrd             #+#    #+#             */
-/*   Updated: 2022/03/04 15:40:14 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/05 17:07:01 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ char	*find_path(char *cmd, char **envp)
     while (tmp_path[++i])
     {
         part_path = ft_strjoin(tmp_path[i], "/");
-        path = ft_strjoin(part_path, "/");
+        path = ft_strjoin(part_path, cmd);
         free(part_path);
         if (access(path, F_OK) == 0)
       		return (path);
@@ -76,16 +76,17 @@ char	**ft_exitt(char *cmd)
 }
 void	execute(char *cmd, t_info *info)
 {
-	char *path;
+	char 	*path;
 	char	**array;
 
 	if (!pipa_helper(cmd, info))
 	{
 		array = ft_exitt(cmd);
-		path = find_path(cmd, info->env);
+		path = find_path(array[0], info->env);
 		if (!path)
 			ft_print_err_exec(array[0]);
-		execve(path, array, info->env);	
+		execve(path, array, info->env);
+	
 	}
 	exit(errno);
 }

@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 14:38:54 by zafar             #+#    #+#             */
-/*   Updated: 2022/03/04 15:46:35 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/05 16:16:39 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int	pipa_helper(char *arg, t_info *info)
 	if (!ft_strncmp("pwd ", arg, 4) || !ft_strncmp("pwd", arg, 4))
 		ft_pwd();
 	if (!ft_strncmp("env ", arg, 4) || !ft_strncmp("env", arg, 4))
-		ft_env(info);
+		get_env(info);
 	if (info->count != 1)
 	{
 		if (!ft_strncmp("export ", arg, 7) || !ft_strncmp("export", arg, 7))
@@ -75,7 +75,7 @@ int	pipa_helper(char *arg, t_info *info)
 			exit(0);
 	}
 	if (!ft_strncmp("echo ", arg, 5) || !ft_strncmp("echo", arg, 5))
-		ft_echo(&info->line);
+		ft_echo(arg, info);
 	return (0);
 }
 

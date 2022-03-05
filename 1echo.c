@@ -6,36 +6,35 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 17:42:40 by bepifani          #+#    #+#             */
-/*   Updated: 2022/02/15 18:11:06 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/05 16:15:51 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int	ft_echo(char **line)
+void	ft_echo(char *arg, t_info *st)
 {
-	int	i;
+	char	**splited;
+	int		i;
+	int		flag;
 
-	i = 8;
-	if (ft_strncmp(line[0], "echo -n", 6) == 0)
+	i = 1;
+	flag = 0;
+	splited = ft_split_wquots(arg);
+	if (!ft_strcmp(splited[i], "-n"))
 	{
-		while(line[0][i] != '\0')
-		{
-			ft_putchar_fd(line[0][i], 1);
-			i++;
-		}
-		return (1);
+		i++;
+		flag = 1;
 	}
-	else if (ft_strncmp(line[0], "echo", 3) == 0)
-	{
-		i = 5;
-		while(line[0][i] != '\0')
-		{
-			ft_putchar_fd(line[0][i], 1);
-			i++;
-		}
-		write(1, "\n", 1);
-		return (1);
+	while (splited[i])
+	{	
+		ft_putstr_fd(splited[i], 1);
+		i++;
+		if (splited[i])
+			ft_putchar_fd(' ', 1);
 	}
-	return (0);
+	if (!flag)
+		ft_putchar_fd('\n', 1);
+	(void)st;
+	exit(0);
 }

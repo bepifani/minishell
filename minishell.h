@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 16:36:14 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/04 18:17:13 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/05 16:18:47 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,7 @@ typedef struct s_info {
 	t_pip	pip;
 }	t_info;
 
-int		ft_pwd(void);
-int		ft_echo(char **line);
+void	ft_echo(char *arg, t_info *st);
 
 //splits.c
 int		ft_where_quot(char c, int code); 								//is_it_quot
@@ -153,10 +152,8 @@ void	ft_set_write(int *rpipe, int out);
 int	pipa_helper(char *arg, t_info *info);
 void	do_redir_right(char **cmd, int *rpipe, t_info *info);
 void	redirect_r(char *cmd, t_info *st);
-int	ft_echo(char **line);
-int set_envp(t_info *info, char **envp, int counter);
 void    ft_env(t_info *info);
-int	ft_pwd(void);
+void	ft_pwd(void);
 int ft_error(t_info *info, int i);
 char	*find_path(char *cmd, char **envp);
 void	ft_print_err_exec(char *cmd);
@@ -211,6 +208,9 @@ void	set_shlvl(t_info *st);
 int	ft_cd_minus_helper(char *prev_dir, t_info *st);
 int	check_name_var(char *str);
 int sizer(char **envp);
+int	set_envp(t_info *st);
+void	get_env(t_info *st);
+
 
 
 #endif

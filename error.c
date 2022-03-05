@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 16:49:32 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/03 16:58:59 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/05 16:55:14 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	ft_error2(char *srt, char *arg, int i) //ft_error_cmd
 {
 	ft_error3(i);
 	if (g_error == 110)
-		ft_putstr_fd("Command not found\n", 2);
+		ft_putstr_fd("t found2\n", 2);
 	else
 	{
 		ft_putstr_fd("minishell: ", 2);
