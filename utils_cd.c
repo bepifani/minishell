@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/03 09:20:38 by nbyrd             #+#    #+#             */
-/*   Updated: 2022/03/05 16:10:27 by bepifani         ###   ########.fr       */
+/*   Created: 2022/03/06 13:54:22 by bepifani          #+#    #+#             */
+/*   Updated: 2022/03/06 13:54:24 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int	ft_cd_minus_helper(char *prev_dir, t_info *st)
+int	ft_cd_minus_helper(char *prev_dir, t_infor *st)
 {
 	char	*current_dir;
 	char	*tmp;
@@ -31,7 +31,7 @@ int	ft_cd_minus_helper(char *prev_dir, t_info *st)
 	return (0);
 }
 
-void	ft_mshfree_helper(int exc, t_info *st)
+void	ft_mshfree_helper(int exc, t_infor *st)
 {
 	if (exc == 2)
 		g_error = 258;
@@ -43,7 +43,7 @@ void	ft_mshfree_helper(int exc, t_info *st)
 	}
 }
 
-int	ft_mshfree1(t_info *st, int code, int exc)
+int	ft_mshfree1(t_infor *st, int code, int exc)
 {
 	int	i;
 
@@ -69,7 +69,7 @@ int	ft_mshfree1(t_info *st, int code, int exc)
 	return (1);
 }
 
-void	ft_do_redir_left_deep(t_info *st, int in)
+void	ft_do_redir_left_deep(t_infor *st, int in)
 {
 	if (st->last_r[st->pip.curr_index] == 2)
 	{

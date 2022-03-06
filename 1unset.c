@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/04 15:10:06 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/05 16:11:12 by bepifani         ###   ########.fr       */
+/*   Created: 2022/03/06 13:51:46 by bepifani          #+#    #+#             */
+/*   Updated: 2022/03/06 14:27:14 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,13 @@ int	check_name_var(char *str)
 	return (1);
 }
 
-int	ft_delelem(t_list **vars)
+int	ft_delelem(t_list **content)
 {
 	t_list	*current;
 	t_list	*next;
 
-	current = *vars;
-	next = (*vars)->next;
+	current = *content;
+	next = (*content)->next;
 	current->next = next->next;
 	ft_lstdelone(next, free);
 	return (0);
@@ -55,12 +55,12 @@ int	ft_unset_print_err(char **splited, int i)
 	return (1);
 }
 
-void	ft_inset_helper(char *splited_i, int len, t_info *st)
+void	ft_inset_helper(char *splited_i, int len, t_infor *st)
 {
 	t_list	*dup;
 	char	*tmp;
 
-	dup = st->vars;
+	dup = st->content;
 	tmp = ft_strjoin(splited_i, "=");
 	while (dup->next)
 	{
@@ -74,7 +74,7 @@ void	ft_inset_helper(char *splited_i, int len, t_info *st)
 	free(tmp);
 }
 
-int	ft_unset(char *var, t_info *st)
+int	ft_unset(char *var, t_infor *st)
 {
 	char	**splited;
 	int		i;

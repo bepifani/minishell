@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   1exit.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nbyrd <nbyrd>                              +#+  +:+       +#+        */
+/*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/03 09:43:46 by nbyrd             #+#    #+#             */
-/*   Updated: 2022/03/03 09:43:46 by nbyrd            ###   ########.fr       */
+/*   Created: 2022/03/06 13:51:27 by bepifani          #+#    #+#             */
+/*   Updated: 2022/03/06 13:51:30 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_strisdig(char *str)
 	i = 0;
 	while (str[i])
 	{
-		if (!ft_isdigit(str[i]))
+		if (!ft_isdigit(str[i++]))
 		{
 			ft_putstr_fd("minishell: exit: ", 2);
 			ft_putstr_fd(str, 2);
@@ -27,28 +27,27 @@ int	ft_strisdig(char *str)
 			ft_putchar_fd('\n', 2);
 			return (0);
 		}
-		i++;
 	}
 	return (1);
 }
 
-void	ft_exit(char *argv, t_info *info)
+void	ft_exit(char *argv, t_infor *st)
 {
-	char **splitted;
+	char	**splited;
 
-	splitted = ft_split_wquots(argv);
-	if (splitted[1] && splitted[2])
+	splited = ft_split_wquots(argv);
+	if (splited[1] && splited[2])
 	{
 		ft_putstr_fd("minishell: exit: too many arguments", 2);
 		ft_putchar_fd('\n', 2);
-		exit(ft_atoi(splitted[1]));
+		exit(ft_atoi(splited[1]));
 	}
-	if (splitted[1] && !ft_strisdig(splitted[1]))
-		info->exit = 255;
-	else if (splitted[1])
-		info->exit = ft_atoi(splitted[1]);
+	if (splited[1] && !ft_strisdig(splited[1]))
+		st->exit = 255;
+	else if (splited[1])
+		st->exit = ft_atoi(splited[1]);
 	else
-		info->exit = 1;
-	ft_myfree(splitted);
-	exit(info->exit);
+		st->exit = 1;
+	ft_myfree(splited);
+	exit(st->exit);
 }

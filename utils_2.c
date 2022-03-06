@@ -5,10 +5,11 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/04 15:23:13 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/05 20:47:01 by bepifani         ###   ########.fr       */
+/*   Created: 2022/03/06 14:02:56 by bepifani          #+#    #+#             */
+/*   Updated: 2022/03/06 14:02:59 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "minishell.h"
 
@@ -19,10 +20,10 @@ int	ft_strrchr_deep(char *s, int c)
 
 	b = (char *)s;
 	i = ft_strlen(s) + 1;
-	ft_where_quot(' ', 1);
+	is_it_quot(' ', 1);
 	while (i--)
 	{
-		if ((ft_where_quot(b[i], 0) == 0) && b[i] == (char) c)
+		if ((is_it_quot(b[i], 0) == 0) && b[i] == (char) c)
 		{
 			return (i);
 		}
@@ -30,7 +31,7 @@ int	ft_strrchr_deep(char *s, int c)
 	return (0);
 }
 
-void	ft_last_redd(t_info *st, char *s, int index)
+void	ft_last_redd(t_infor *st, char *s, int index)
 {
 	int	j;
 
@@ -47,7 +48,7 @@ void	ft_last_redd(t_info *st, char *s, int index)
 		st->last_r[index] = 1;
 }
 
-void	ft_last_red(t_info *st, char **s)
+void	ft_last_red(t_infor *st, char **s)
 {
 	int	iinc[3];
 

@@ -5,21 +5,52 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/18 14:38:54 by zafar             #+#    #+#             */
-/*   Updated: 2022/03/05 16:16:39 by bepifani         ###   ########.fr       */
+/*   Created: 2022/03/06 13:53:31 by bepifani          #+#    #+#             */
+/*   Updated: 2022/03/06 13:53:33 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int	cmd_count(t_info *info)
+int	pipa_helper(char *arg, t_infor *st)
 {
-	int	i;
+	if (!ft_strncmp("pwd ", arg, 4) || !ft_strncmp("pwd", arg, 4))
+		ft_pwd();
+	if (!ft_strncmp("env ", arg, 4) || !ft_strncmp("env", arg, 4))
+		get_env(st);
+	if (st->count != 1)
+	{
+		if (!ft_strncmp("export ", arg, 7) || !ft_strncmp("export", arg, 7))
+			exit(ft_export(arg, st));
+		if (!ft_strncmp("unset ", arg, 6) || !ft_strncmp("unset", arg, 6))
+			exit(ft_unset(arg, st));
+		if (!ft_strncmp("cd ", arg, 3) || !ft_strncmp("cd", arg, 3))
+			exit(ft_cd(arg, st));
+	}
+	else
+	{
+		if (!ft_strncmp("export ", arg, 7) || !ft_strncmp("export", arg, 7) \
+		|| !ft_strncmp("unset ", arg, 6) || !ft_strncmp("unset", arg, 6) \
+		|| !ft_strncmp("cd ", arg, 3) || !ft_strncmp("cd", arg, 3))
+			exit(0);
+	}
+	if (!ft_strncmp("echo ", arg, 5) || !ft_strncmp("echo", arg, 5))
+		ft_echo(arg, st);
+	return (0);
+}
 
-	i = 0;
-	while (info->cmd[i])
-		i++;
-	return (i);
+void	ft_reinit_pip(t_infor *st)
+{
+	close(st->pip.lpipe[0]);
+	close(st->pip.lpipe[1]);
+	close(st->pip.rpipe[0]);
+	close(st->pip.rpipe[1]);
+	close(st->pip.in);
+	st->pip.lpipe[0] = -1;
+	st->pip.lpipe[1] = -1;
+	st->pip.rpipe[0] = -1;
+	st->pip.rpipe[1] = -1;
+	st->pip.in = -1;
 }
 
 void	ft_set_read(int *lpipe, int in)
@@ -50,58 +81,4 @@ void	ft_set_write(int *rpipe, int out)
 		dup2(out, STDOUT_FILENO);
 		close(out);
 	}
-}
-
-int	pipa_helper(char *arg, t_info *info)
-{
-	if (!ft_strncmp("pwd ", arg, 4) || !ft_strncmp("pwd", arg, 4))
-		ft_pwd();
-	if (!ft_strncmp("env ", arg, 4) || !ft_strncmp("env", arg, 4))
-		get_env(info);
-	if (info->count != 1)
-	{
-		if (!ft_strncmp("export ", arg, 7) || !ft_strncmp("export", arg, 7))
-			exit(ft_export(arg, info));
-		if (!ft_strncmp("unset ", arg, 6) || !ft_strncmp("unset", arg, 6))
-			exit(ft_unset(arg, info));
-		if (!ft_strncmp("cd ", arg, 3) || !ft_strncmp("cd", arg, 3))
-			exit(ft_cd(arg, info));
-	}
-	else
-	{
-		if (!ft_strncmp("export ", arg, 7) || !ft_strncmp("export", arg, 7) \
-		|| !ft_strncmp("unset ", arg, 6) || !ft_strncmp("unset", arg, 6) \
-		|| !ft_strncmp("cd ", arg, 3) || !ft_strncmp("cd", arg, 3))
-			exit(0);
-	}
-	if (!ft_strncmp("echo ", arg, 5) || !ft_strncmp("echo", arg, 5))
-		ft_echo(arg, info);
-	return (0);
-}
-
-int	fork_and_chain(int *lpipe, int *rpipe, char **cmd, t_info *info)
-{
-	int	pid;
-
-	pid = fork();
-	if (pid == -1)
-		exit(1);
-	if (!pid)
-	{
-		signal(SIGINT, sig_void2);
-		//rl_catch_signals = 1;
-		do_redir_left(cmd, lpipe, info);
-		signal(SIGINT, sig_handler);
-		do_redir_right(cmd, rpipe, info);
-		do_command(cmd, rpipe, info);
-	}
-	else
-	{
-		if (contain(cmd))
-			waitpid(pid, NULL, 0);
-		else
-			waitpid(pid, NULL, WNOHANG);
-	}
-	info->pip.curr_index++;
-	return (pid);
 }

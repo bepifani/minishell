@@ -5,29 +5,56 @@
 #                                                     +:+ +:+         +:+      #
 #    By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/02/15 16:34:08 by bepifani          #+#    #+#              #
-#    Updated: 2022/03/05 20:57:03 by bepifani         ###   ########.fr        #
+#    Created: 2022/03/06 13:53:16 by bepifani          #+#    #+#              #
+#    Updated: 2022/03/06 13:55:35 by bepifani         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = minishell
 GCC = gcc
-LIBFT = ./bible2/libft.a
-LIB_BINARY = -L ./bible2 -lft -lreadline -ledit
+LIBFT = ./libft_l/libft.a
+LIB_BINARY = -L ./libft_l -lft -lreadline -ledit
 CFLAGS = -Wall -Werror -Wextra
 INCLUDE_SYS	= /Users/bepifani/.brew/Cellar/readline/8.1.2/include
 LIB_SYS	= /Users/bepifani/.brew/opt/readline/lib/
 
-SRCS= splits.c split2.c maker_commands.c maker_com_helper.c symbols.c \
-		split_for_com.c split_for_com2.c error.c make_cmd.c make_cmd_utils.c \
-		checker.c checker_utils.c checker_redirect.c split3.c main.c 1pwd.c 1echo.c \
-		1env.c 1exit.c execution.c init.c pipex_utils.c pipex_utils2.c pipex.c \
-		redirs.c signal_utils.c utils_2.c utils_1.c utils_3.c utils_cd.c 1cd.c  \
-		1unset.c 1export.c \
+SRCS = main.c \
+		ft_split.c \
+		ft_split_utils.c \
+		utils_1.c \
+		get_next_line.c \
+		inits.c \
+		errors.c \
+		com_check.c \
+		1cd.c \
+		ft_command_split.c \
+		1env.c \
+		1pwd.c \
+		1exit.c \
+		ft_command_split_utils.c \
+		1export.c \
+		1unset.c \
+		com_check_utils.c \
+		1echo.c \
+		split_wquots.c \
+		com_check_reddir.c \
+		ft_rebildredir.c \
+		ft_rebildredir_utils.c  \
+		signal_utils.c \
+		ft_del_quot_1.c \
+		creater_of_cmd.c \
+		pipex.c \
+		pipex_utils.c \
+		execute.c \
+		redirs.c \
+		creater_of_cmd_utils.c \
+		pipex_utils_1.c \
+		utils_cd.c \
+		utils_2.c
 
 OBJS = $(SRCS:.c=.o)
 
-all: $(LIBFT) ./bible2/libft.a $(NAME)
+all: $(LIBFT) ./libft_l/libft.a $(NAME)
 
 $(NAME): $(OBJS) $(LIBFT) minishell.h Makefile
 	$(GCC) $(CFLAGS) $(OBJS) -L $(LIB_SYS) $(LIB_BINARY) -o $(NAME)
@@ -36,11 +63,11 @@ $(NAME): $(OBJS) $(LIBFT) minishell.h Makefile
 					$(GCC) $(CFLAGS) -c $< -o $@ -I$(INCLUDE_SYS)
 							
 $(LIBFT):
-	make -C ./bible2/ bonus
+	make -C ./libft_l/ bonus
 
 clean:
 	rm -f $(OBJS) $(OBJSB)
-	make -C ./bible2/ fclean
+	make -C ./libft_l/ fclean
 
 fclean: clean
 	rm -f $(NAME)

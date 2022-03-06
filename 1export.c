@@ -5,18 +5,18 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/04 15:43:12 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/05 18:27:13 by bepifani         ###   ########.fr       */
+/*   Created: 2022/03/06 13:51:34 by bepifani          #+#    #+#             */
+/*   Updated: 2022/03/06 14:03:52 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int	ft_print_export(t_info *st)
+int	ft_print_export(t_infor *st)
 {
 	t_list	*dup;
 
-	dup = st->vars;
+	dup = st->content;
 	while (dup)
 	{
 		ft_putstr_fd("declare -x ", 1);
@@ -26,11 +26,11 @@ int	ft_print_export(t_info *st)
 	return (0);
 }
 
-int	ft_export_helper(t_info *st, char **splited, int i, int len)
+int	ft_export_helper(t_infor *st, char **splited, int i, int len)
 {
 	t_list	*dup;
 
-	dup = st->vars;
+	dup = st->content;
 	while (dup)
 	{
 		if (splited[i][len] != '=')
@@ -62,7 +62,7 @@ int	ft_export_print_err(char **splited, int i)
 	return (1);
 }
 
-int	ft_export(char *var, t_info *st)
+int	ft_export(char *var, t_infor *st)
 {
 	int		len;
 	char	**splited;
@@ -77,9 +77,8 @@ int	ft_export(char *var, t_info *st)
 	{
 		if (!ft_export_print_err(splited, i))
 			return (1);
-		
 		if (!ft_export_helper(st, splited, i, len))
-			ft_lstadd_back(&(st->vars), ft_lstnew(ft_strdup(splited[i])));
+			ft_lstadd_back(&(st->content), ft_lstnew(ft_strdup(splited[i])));
 		i++;
 		len = ft_getlen(splited[i]);
 	}

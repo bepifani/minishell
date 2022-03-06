@@ -5,27 +5,26 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/21 14:56:51 by nbyrd             #+#    #+#             */
-/*   Updated: 2022/03/05 20:42:11 by bepifani         ###   ########.fr       */
+/*   Created: 2022/03/06 13:51:19 by bepifani          #+#    #+#             */
+/*   Updated: 2022/03/06 14:03:29 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int	set_envp(t_info *st)
+int	set_envp(t_infor *st)
 {
 	int		count;
 	char	**new_env;
 	t_list	*dup;
 	int		i;
 
-	count = ft_lstsize(st->vars);
+	count = ft_lstsize(st->content);
 	new_env = malloc(sizeof(char *) * (count + 1));
-	
 	if (!new_env)
 		return (ft_error(st, 1));
 	new_env[count] = NULL;
-	dup = st->vars;
+	dup = st->content;
 	i = 0;
 	while (dup)
 	{
@@ -38,14 +37,14 @@ int	set_envp(t_info *st)
 	return (1);
 }
 
-void	get_env(t_info *st)
+void	get_env(t_infor *st)
 {
 	t_list	*dup;
 
-	dup = st->vars;
+	dup = st->content;
 	while (dup)
 	{
-		ft_putstr_fd(dup->content, 1);
+		ft_putstr(dup->content);
 		ft_putchar_fd('\n', 1);
 		dup = dup->next;
 	}

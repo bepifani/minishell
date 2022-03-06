@@ -5,14 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/15 17:42:40 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/05 16:15:51 by bepifani         ###   ########.fr       */
+/*   Created: 2022/03/06 13:51:12 by bepifani          #+#    #+#             */
+/*   Updated: 2022/03/06 13:51:13 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
+
 #include "minishell.h"
 
-void	ft_echo(char *arg, t_info *st)
+void	ft_echo(char *arg, t_infor *st)
 {
 	char	**splited;
 	int		i;
@@ -28,7 +30,7 @@ void	ft_echo(char *arg, t_info *st)
 	}
 	while (splited[i])
 	{	
-		ft_putstr_fd(splited[i], 1);
+		ft_putstr(splited[i]);
 		i++;
 		if (splited[i])
 			ft_putchar_fd(' ', 1);

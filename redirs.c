@@ -5,14 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/02 13:47:43 by nbyrd             #+#    #+#             */
-/*   Updated: 2022/03/05 18:22:41 by bepifani         ###   ########.fr       */
+/*   Created: 2022/03/06 13:53:56 by bepifani          #+#    #+#             */
+/*   Updated: 2022/03/06 14:02:26 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #include "minishell.h"
 
-void	redirect_r(char *cmd, t_info *st)
+void	redirect_r(char *cmd, t_infor *st)
 {
 	int	out;
 
@@ -33,22 +34,22 @@ void	redirect_r(char *cmd, t_info *st)
 	ft_set_write(NULL, out);
 }
 
-int	redirect_l(char *cmd, t_info *info)
+int	redirect_l(char *cmd, t_infor *st)
 {
-	close(info->pip.in);
+	close(st->pip.in);
 	if (!ft_strncmp(cmd, "<<", 2))
 	{
 		while (*cmd == '<' || *cmd == ' ')
 			cmd++;
 		here_doc(cmd);
-		info->pip.in = open(".tmp", O_RDONLY, 0777);
+		st->pip.in = open(".tmp", O_RDONLY, 0777);
 	}
 	else
 	{
 		while (*cmd == '<' || *cmd == ' ')
 			cmd++;
-		info->pip.in = open(cmd, O_RDONLY, 0777);
-		if (info->pip.in == -1)
+		st->pip.in = open(cmd, O_RDONLY, 0777);
+		if (st->pip.in == -1)
 		{
 			ft_putstr_fd("msh: ", 2);
 			ft_putstr_fd(cmd, 2);
@@ -56,19 +57,20 @@ int	redirect_l(char *cmd, t_info *info)
 			exit(errno);
 		}
 	}
-	return (info->pip.in);
+	return (st->pip.in);
 }
 
-void	here_doc(char *limitter)
+void	here_doc(char *limiter)
 {
-	int	fd;
+	int		fd;
 	char	*line;
 
+	line = NULL;
 	fd = open(".tmp", O_WRONLY | O_CREAT | O_TRUNC, 0777);
 	while (1)
 	{
 		line = readline("> ");
-		if (ft_strcmp(limitter, line ) || !line)
+		if (!ft_strcmp(limiter, line) || !line)
 		{
 			close(fd);
 			free(line);

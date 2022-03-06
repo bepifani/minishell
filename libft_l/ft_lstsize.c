@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   1pwd.c                                             :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/06 13:51:40 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/06 13:51:43 by bepifani         ###   ########.fr       */
+/*   Created: 2021/10/11 19:44:08 by bepifani          #+#    #+#             */
+/*   Updated: 2022/03/06 14:20:11 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "libft.h"
 
-void	ft_pwd(void)
+int	ft_lstsize(t_list *lst)
 {
-	char	cwd[PATH_MAX];
+	size_t	size;
 
-	if (getcwd(cwd, PATH_MAX))
+	size = 0;
+	while (lst)
 	{
-		ft_putstr_fd(cwd, 1);
-		ft_putstr_fd("\n", 1);
-		exit(0);
+		size++;
+		lst = lst->next;
 	}
-	else
-		exit(1);
+	return (size);
 }

@@ -5,20 +5,20 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/04 15:28:16 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/05 16:11:28 by bepifani         ###   ########.fr       */
+/*   Created: 2022/03/06 13:51:02 by bepifani          #+#    #+#             */
+/*   Updated: 2022/03/06 14:08:01 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-char	*find_env(char *var, t_info *st)
+char	*find_env(char *var, t_infor *st)
 {
 	int		len;
 	t_list	*dup;
 
 	len = ft_strlen(var);
-	dup = st->vars;
+	dup = st->content;
 	while (dup)
 	{
 		if (!ft_strncmp(dup->content, var, len))
@@ -30,7 +30,7 @@ char	*find_env(char *var, t_info *st)
 	return (ft_strdup(dup->content + len));
 }
 
-int	ft_cd_minus(t_info *st)
+int	ft_cd_minus(t_infor *st)
 {
 	char	*prev_dir;
 
@@ -43,14 +43,14 @@ int	ft_cd_minus(t_info *st)
 	if (chdir(prev_dir) != 0)
 	{
 		free(prev_dir);
-		ft_error2("cd: ", NULL, errno);
+		ft_error_cmd("cd: ", NULL, errno);
 		return (1);
 	}
 	else
 		return (ft_cd_minus_helper(prev_dir, st));
 }
 
-int	ft_cd_deep_helper(char *current_dir, t_info *st, char **splited)
+int	ft_cd_deep_helper(char *current_dir, t_infor *st, char **splited)
 {
 	char	cwd[PATH_MAX];
 	char	*prev_dir;
@@ -68,7 +68,7 @@ int	ft_cd_deep_helper(char *current_dir, t_info *st, char **splited)
 	return (0);
 }
 
-int	ft_cd_helper(t_info *st, char **splited)
+int	ft_cd_helper(t_infor *st, char **splited)
 {
 	char	*current_dir;
 
@@ -76,7 +76,7 @@ int	ft_cd_helper(t_info *st, char **splited)
 	if (chdir(splited[1]) != 0)
 	{
 		free(current_dir);
-		ft_error2("cd", splited[1], errno);
+		ft_error_cmd("cd", splited[1], errno);
 		ft_myfree(splited);
 		return (1);
 	}
@@ -84,7 +84,7 @@ int	ft_cd_helper(t_info *st, char **splited)
 		return (ft_cd_deep_helper(current_dir, st, splited));
 }
 
-int	ft_cd(char *args, t_info *st)
+int	ft_cd(char *args, t_infor *st)
 {
 	char	**splited;
 

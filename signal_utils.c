@@ -5,10 +5,11 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/02 13:17:03 by nbyrd             #+#    #+#             */
-/*   Updated: 2022/03/04 17:21:04 by bepifani         ###   ########.fr       */
+/*   Created: 2022/03/06 13:54:04 by bepifani          #+#    #+#             */
+/*   Updated: 2022/03/06 14:02:36 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "minishell.h"
 
@@ -16,7 +17,7 @@ void	sig_handler(int sig)
 {
 	if (sig == SIGINT)
 	{
-		ft_putstr_fd("\n", 2);
+		ft_putstr("\n");
 		rl_on_new_line();
 		rl_replace_line("\0", 0);
 		rl_redisplay();

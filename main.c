@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/15 16:54:50 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/05 16:09:00 by bepifani         ###   ########.fr       */
+/*   Created: 2022/03/06 13:53:11 by bepifani          #+#    #+#             */
+/*   Updated: 2022/03/06 13:53:12 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int	ft_parsing(t_info *st)
+int	ft_parsing(t_infor *st)
 {
 	int	i;
 
@@ -27,13 +27,13 @@ int	ft_parsing(t_info *st)
 		add_history(st->line);
 	if (ft_space_check(st->line))
 		return (ft_mshfree1(st, 1, -1));
-	if (ft_big_checker(st) == 1)
+	if (ft_com_check(st) == 1)
 		return (ft_mshfree1(st, 1, 2));
 	if (st->cmd == NULL)
 		return (ft_mshfree1(st, 1, 1));
 	signal(SIGINT, sig_void);
 	if (st->cmd == NULL)
-		ft_skiper3(st);
+		ft_skip(st);
 	else
 		pipex(st->cmd, st);
 	ft_mshfree1(st, 2, 0);
@@ -42,7 +42,7 @@ int	ft_parsing(t_info *st)
 
 int	main(int argc, char **argv, char **envp)
 {
-	t_info	st;
+	t_infor	st;
 
 	ft_init(&st, argc, argv, envp);
 	set_envp(&st);

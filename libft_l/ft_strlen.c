@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   1pwd.c                                             :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/06 13:51:40 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/06 13:51:43 by bepifani         ###   ########.fr       */
+/*   Created: 2021/10/05 14:37:57 by bepifani          #+#    #+#             */
+/*   Updated: 2022/03/06 14:26:28 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "libft.h"
 
-void	ft_pwd(void)
+size_t	ft_strlen(const char *str)
 {
-	char	cwd[PATH_MAX];
+	size_t	i;
 
-	if (getcwd(cwd, PATH_MAX))
-	{
-		ft_putstr_fd(cwd, 1);
-		ft_putstr_fd("\n", 1);
-		exit(0);
-	}
-	else
-		exit(1);
+	i = 0;
+	while (str && str[i])
+		i++;
+	return (i);
 }

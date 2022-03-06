@@ -3,37 +3,75 @@
 /*                                                        :::      ::::::::   */
 /*   utils_1.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nbyrd <nbyrd>                              +#+  +:+       +#+        */
+/*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/02 13:24:56 by nbyrd             #+#    #+#             */
-/*   Updated: 2022/03/02 13:24:56 by nbyrd            ###   ########.fr       */
+/*   Created: 2022/03/06 13:54:13 by bepifani          #+#    #+#             */
+/*   Updated: 2022/03/06 13:54:15 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int	contain(char **str)
+void	ft_putstr(char *s)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
-	while(str[i])
+	while (s[i])
+		i++;
+	write(1, s, i);
+}
+
+int	ft_strcmp(char *s1, char *s2)
+{
+	if (!s2 || !s1)
+		return (1);
+	while (*s1 && *s1 == *s2)
 	{
-		if(!ft_strncmp(str[i], "<<", 2))
+		s1++;
+		s2++;
+	}
+	return ((unsigned char)*s1 - (unsigned char)*s2);
+}
+
+int	ft_strchr_up(char *b, char *c)
+{
+	size_t	i;
+	size_t	j;
+	size_t	z;
+
+	i = 0;
+	if (!b)
+		return (0);
+	while (b[i])
+	{
+		j = i;
+		z = 0;
+		while (b[j])
+		{
+			if (b[j] != c[z])
+				break ;
+			j++;
+			z++;
+		}
+		if (z == ft_strlen(c))
 			return (1);
 		i++;
 	}
 	return (0);
 }
 
-int ft_strcmp(char *str1, char *str2)
+int	contain(char **cmd)
 {
-	int	i;
+	while (*cmd)
+		if (!ft_strncmp(*cmd++, "<<", 2))
+			return (1);
+	return (0);
+}
 
-	i = 0;
-	if (!str1 || !str2)
-		return (1);
-	while (str1[i] && str1[i] == str2[i])
-		i++;
-	return ((unsigned char)str1[i] - (unsigned char)str2[i]);
+int	ft_set_in(t_infor *st, int in)
+{
+	close(in);
+	st->pip.in = open("./libft/.tmp", O_RDONLY, 0777);
+	return (st->pip.in);
 }

@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   1pwd.c                                             :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/06 13:51:40 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/06 13:51:43 by bepifani         ###   ########.fr       */
+/*   Created: 2021/10/09 16:15:27 by bepifani          #+#    #+#             */
+/*   Updated: 2021/10/09 16:33:20 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "libft.h"
 
-void	ft_pwd(void)
+void	*ft_calloc(size_t count, size_t size)
 {
-	char	cwd[PATH_MAX];
+	void	*a;
 
-	if (getcwd(cwd, PATH_MAX))
-	{
-		ft_putstr_fd(cwd, 1);
-		ft_putstr_fd("\n", 1);
-		exit(0);
-	}
-	else
-		exit(1);
+	a = malloc(count * size);
+	if (a == 0)
+		return (0);
+	ft_bzero(a, count * size);
+	return (a);
 }

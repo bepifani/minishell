@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   1pwd.c                                             :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/06 13:51:40 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/06 13:51:43 by bepifani         ###   ########.fr       */
+/*   Created: 2021/10/05 17:04:53 by bepifani          #+#    #+#             */
+/*   Updated: 2021/10/09 18:50:49 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "libft.h"
 
-void	ft_pwd(void)
+char	*ft_strrchr(const char *s, int c)
 {
-	char	cwd[PATH_MAX];
+	char	*a;
+	char	b;
 
-	if (getcwd(cwd, PATH_MAX))
+	a = (char *)s + ft_strlen(s);
+	b = (char)c;
+	while (a >= s)
 	{
-		ft_putstr_fd(cwd, 1);
-		ft_putstr_fd("\n", 1);
-		exit(0);
+		if (*a == b)
+			return (a);
+		a--;
 	}
-	else
-		exit(1);
+	return (0);
 }
