@@ -25,8 +25,8 @@ int	fork_and_chain(int *lpipe, int *rpipe, char **cmd, t_struct *st)
 		rl_catch_signals = 1;
 		ft_maker_for_do_lredir(cmd, lpipe, st);
 		signal(SIGINT, sig_handler);
-		do_redir_right(cmd, rpipe, st);
-		do_command(cmd, rpipe, st);
+		ft_maker_for_do_rredir(cmd, rpipe, st);
+		ft_coommand_doing(cmd, rpipe, st);
 	}
 	else
 	{
@@ -75,7 +75,7 @@ void	ft_pipex(char ***cmd, t_struct *st)
 	int	pid;
 	int	status;
 
-	count = get_count_cmd(cmd);
+	count = ft_get_counting_cmd(cmd);
 	i = 1;
 	st->count = count;
 	if (count != 1)

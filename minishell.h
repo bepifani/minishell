@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 13:53:22 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/06 14:59:22 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/06 15:04:27 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,15 +67,19 @@ void		ft_mshfree_helper(int exc, t_struct *st);
 void		ft_maker_left_redir(t_struct *st, int in);
 // void		do_redir_left(char **cmd, int *lpipe, t_struct *st);
 void		ft_maker_for_do_lredir(char **cmd, int *lpipe, t_struct *st);
-void		do_redir_right(char **cmd, int *rpipe, t_struct *st);
-void		do_command(char **cmd, int *rpipe, t_struct *st);
+// void		do_redir_right(char **cmd, int *rpipe, t_struct *st);
+void		ft_maker_for_do_rredir(char **cmd, int *rpipe, t_struct *st);
+// void		do_command(char **cmd, int *rpipe, t_struct *st);
+void		ft_coommand_doing(char **cmd, int *rpipe, t_struct *st);
 int			ft_check_buildins(char **cmd, t_struct *st, int count);
-int			get_count_cmd(char ***cmd);
+// int			get_count_cmd(char ***cmd);
+int			ft_get_counting_cmd(char ***cmd);
 int			ft_cd_minus_helper(char *prev_dir, t_struct *st);
 int			ft_cd(char *args, t_struct *st);
 void		ft_exit(char *argv, t_struct *st);
 void		ft_pwd(void);
-void		get_env(t_struct *st);
+// void		get_env(t_struct *st);
+void		ft_getting_env(t_struct *st);
 int			ft_export(char *var, t_struct *st);
 int			ft_unset(char *var, t_struct *st);
 void		ft_echo(char *arg, t_struct *st);
