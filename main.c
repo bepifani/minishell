@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 13:53:11 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/06 14:50:42 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/06 14:57:32 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	ft_parsing(t_struct *st)
 	if (st->cmd == NULL)
 		ft_skip(st);
 	else
-		pipex(st->cmd, st);
+		ft_pipex(st->cmd, st);
 	ft_mshfree1(st, 2, 0);
 	return (0);
 }

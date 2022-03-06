@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 13:54:13 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/06 14:50:42 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/06 14:58:39 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int	ft_strchr_up(char *b, char *c)
 	return (0);
 }
 
-int	contain(char **cmd)
+int	ft_strelki(char **cmd)
 {
 	while (*cmd)
 		if (!ft_strncmp(*cmd++, "<<", 2))

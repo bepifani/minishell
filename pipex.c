@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.c                                            :+:      :+:    :+:   */
+/*   ft_pipex.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -23,14 +23,14 @@ int	fork_and_chain(int *lpipe, int *rpipe, char **cmd, t_struct *st)
 	{
 		signal(SIGINT, ft_sig_void2);
 		rl_catch_signals = 1;
-		do_redir_left(cmd, lpipe, st);
+		ft_maker_for_do_lredir(cmd, lpipe, st);
 		signal(SIGINT, sig_handler);
 		do_redir_right(cmd, rpipe, st);
 		do_command(cmd, rpipe, st);
 	}
 	else
 	{
-		if (contain(cmd))
+		if (ft_strelki(cmd))
 			waitpid(pid, NULL, 0);
 		else
 			waitpid(pid, NULL, WNOHANG);
@@ -68,7 +68,7 @@ void	if_count_no_one(int i, int flag, char ***cmd, t_struct *st)
 	}
 }
 
-void	pipex(char ***cmd, t_struct *st)
+void	ft_pipex(char ***cmd, t_struct *st)
 {
 	int	i;
 	int	count;

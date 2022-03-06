@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 13:53:22 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/06 14:53:28 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/06 14:59:22 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,12 +58,15 @@ typedef struct s_infor
 	t_pip	pip;
 }	t_struct;
 
-void		pipex(char ***cmd, t_struct *st);
-int			contain(char **cmd);
+// void		pipex(char ***cmd, t_struct *st);
+void		ft_pipex(char ***cmd, t_struct *st);
+// int			contain(char **cmd);
+int			ft_strelki(char **cmd);
 void		ft_mshfree_helper(int exc, t_struct *st);
 // void		ft_do_redir_left_deep(t_struct *st, int in);
 void		ft_maker_left_redir(t_struct *st, int in);
-void		do_redir_left(char **cmd, int *lpipe, t_struct *st);
+// void		do_redir_left(char **cmd, int *lpipe, t_struct *st);
+void		ft_maker_for_do_lredir(char **cmd, int *lpipe, t_struct *st);
 void		do_redir_right(char **cmd, int *rpipe, t_struct *st);
 void		do_command(char **cmd, int *rpipe, t_struct *st);
 int			ft_check_buildins(char **cmd, t_struct *st, int count);

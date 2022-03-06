@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex_utils_1.c                                    :+:      :+:    :+:   */
+/*   ft_pipex_utils_1.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,7 @@
 
 #include "minishell.h"
 
-void	do_redir_left(char **cmd, int *lpipe, t_struct *st)
+void	ft_maker_for_do_lredir(char **cmd, int *lpipe, t_struct *st)
 {
 	int	i;
 	int	in;
