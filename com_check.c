@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 13:52:02 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/06 14:46:24 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/06 14:52:26 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int	ft_semicolon(char **sst)
 	return (0);
 }
 
-int	check_space_inquot(t_infor *st)
+int	check_space_inquot(t_struct *st)
 {
 	int	i;
 	int	flag;
@@ -86,7 +86,7 @@ int	check_space_inquot(t_infor *st)
 	return (0);
 }
 
-void	ft_opendollar(t_infor *st)
+void	ft_opendollar(t_struct *st)
 {
 	int	i;
 	int	j;
@@ -115,7 +115,7 @@ void	ft_opendollar(t_infor *st)
 	}
 }
 
-int	ft_com_check(t_infor *st)
+int	ft_com_check(t_struct *st)
 {
 	signal(SIGINT, sig_void);
 	if (ft_quot(st->line))
@@ -137,7 +137,7 @@ int	ft_com_check(t_infor *st)
 	ft_rebildredir(st);
 	ft_cutter(st);
 	st->commands = get_modif_arg(st->commands);
-	st->commands = foo_bar(st->commands);
+	st->commands = ft_maker_mass(st->commands);
 	st->cmd = ft_createrofcmd(st);
 	if (st->splited)
 		free(st->splited);

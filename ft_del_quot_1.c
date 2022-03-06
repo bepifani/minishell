@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 13:52:37 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/06 13:52:39 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/06 14:50:42 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	ft_delquot(char *s, char *nl)
 	nl[i] = '\0';
 }
 
-void	ft_swap_string(t_infor *s, int x, char *k)
+void	ft_swap_string(t_struct *s, int x, char *k)
 {
 	int		i;
 	char	*tmp;
@@ -62,7 +62,7 @@ void	ft_swap_string(t_infor *s, int x, char *k)
 	s->splited[x] = tmp2;
 }
 
-void	ft_changefirstcomm(t_infor *st)
+void	ft_changefirstcomm(t_struct *st)
 {
 	int		i;
 	char	**tmp;

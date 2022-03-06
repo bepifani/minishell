@@ -6,13 +6,13 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 13:54:22 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/06 14:33:11 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/06 14:50:42 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int	ft_cd_minus_helper(char *prev_dir, t_infor *st)
+int	ft_cd_minus_helper(char *prev_dir, t_struct *st)
 {
 	char	*current_dir;
 	char	*tmp;
@@ -31,7 +31,7 @@ int	ft_cd_minus_helper(char *prev_dir, t_infor *st)
 	return (0);
 }
 
-void	ft_mshfree_helper(int exc, t_infor *st)
+void	ft_mshfree_helper(int exc, t_struct *st)
 {
 	if (exc == 2)
 		g_error = 258;
@@ -43,7 +43,7 @@ void	ft_mshfree_helper(int exc, t_infor *st)
 	}
 }
 
-int	ft_mshfree1(t_infor *st, int code, int exc)
+int	ft_mshfree1(t_struct *st, int code, int exc)
 {
 	int	i;
 
@@ -69,7 +69,7 @@ int	ft_mshfree1(t_infor *st, int code, int exc)
 	return (1);
 }
 
-void	ft_maker_left_redir(t_infor *st, int in)
+void	ft_maker_left_redir(t_struct *st, int in)
 {
 	if (st->last_r[st->pip.curr_index] == 2)
 	{

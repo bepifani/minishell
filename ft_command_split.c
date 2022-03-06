@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 13:52:33 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/06 13:52:34 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/06 14:50:42 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ char	*ft_add_noth(void)
 	return (string);
 }
 
-int	add_pipe_helper(t_infor *st, char **newcom, int i, int j)
+int	add_pipe_helper(t_struct *st, char **newcom, int i, int j)
 {
 	while (st->splited[i])
 	{
@@ -46,7 +46,7 @@ int	add_pipe_helper(t_infor *st, char **newcom, int i, int j)
 	return (0);
 }
 
-int	ft_add_pipe(t_infor *st)
+int	ft_add_pipe(t_struct *st)
 {
 	char	**newcom;
 	int		len;

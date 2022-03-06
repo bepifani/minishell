@@ -6,13 +6,13 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 13:51:02 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/06 14:31:22 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/06 14:50:42 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-char	*find_env(char *var, t_infor *st)
+char	*find_env(char *var, t_struct *st)
 {
 	int		len;
 	t_list	*dup;
@@ -30,7 +30,7 @@ char	*find_env(char *var, t_infor *st)
 	return (ft_strdup(dup->content + len));
 }
 
-int	ft_cd_minus(t_infor *st)
+int	ft_cd_minus(t_struct *st)
 {
 	char	*prev_dir;
 
@@ -50,7 +50,7 @@ int	ft_cd_minus(t_infor *st)
 		return (ft_cd_minus_helper(prev_dir, st));
 }
 
-int	ft_cd_deep_helper(char *current_dir, t_infor *st, char **splited)
+int	ft_cd_deep_helper(char *current_dir, t_struct *st, char **splited)
 {
 	char	cwd[PATH_MAX];
 	char	*prev_dir;
@@ -68,7 +68,7 @@ int	ft_cd_deep_helper(char *current_dir, t_infor *st, char **splited)
 	return (0);
 }
 
-int	ft_cd_helper(t_infor *st, char **splited)
+int	ft_cd_helper(t_struct *st, char **splited)
 {
 	char	*current_dir;
 
@@ -84,7 +84,7 @@ int	ft_cd_helper(t_infor *st, char **splited)
 		return (ft_cd_deep_helper(current_dir, st, splited));
 }
 
-int	ft_cd(char *args, t_infor *st)
+int	ft_cd(char *args, t_struct *st)
 {
 	char	**splited;
 

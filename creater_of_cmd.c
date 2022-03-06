@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 13:52:11 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/06 13:52:13 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/06 14:50:42 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	find_com_count(char **s)
 	return (count);
 }
 
-char	**ft_create_node(t_infor *st, int *j)
+char	**ft_create_node(t_struct *st, int *j)
 {
 	int		i;
 	int		tmp;
@@ -59,7 +59,7 @@ char	**ft_create_node(t_infor *st, int *j)
 	return (nl);
 }
 
-char	***ft_createrofcmd(t_infor *st)
+char	***ft_createrofcmd(t_struct *st)
 {
 	char	***nl;
 	int		i;

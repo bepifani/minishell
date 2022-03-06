@@ -6,13 +6,13 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 13:53:06 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/06 13:59:05 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/06 14:50:42 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	set_shlvl(t_infor *st)
+void	set_shlvl(t_struct *st)
 {
 	char	*tmp;
 	int		num;
@@ -28,7 +28,7 @@ void	set_shlvl(t_infor *st)
 	free(tmp);
 }
 
-void	ft_init(t_infor *st, int arg1, char **arg2, char **arg3)
+void	ft_init(t_struct *st, int arg1, char **arg2, char **arg3)
 {
 	int	i;
 
@@ -57,7 +57,7 @@ void	ft_init(t_infor *st, int arg1, char **arg2, char **arg3)
 	rl_catch_signals = 0;
 }
 
-void	ft_sigex(t_infor *st)
+void	ft_sigex(t_struct *st)
 {
 	ft_putstr("exit\n");
 	if (st->line)

@@ -6,13 +6,13 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 13:53:11 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/06 13:53:12 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/06 14:50:42 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int	ft_parsing(t_infor *st)
+int	ft_parsing(t_struct *st)
 {
 	int	i;
 
@@ -42,7 +42,7 @@ int	ft_parsing(t_infor *st)
 
 int	main(int argc, char **argv, char **envp)
 {
-	t_infor	st;
+	t_struct	st;
 
 	ft_init(&st, argc, argv, envp);
 	set_envp(&st);

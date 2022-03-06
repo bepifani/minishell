@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 13:52:07 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/06 13:52:09 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/06 14:52:26 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void	foo_helper(char *s, int *c, int *len)
 	}
 }
 
-char	**foo_bar(char **arr)
+char	**ft_maker_mass(char **arr)
 {
 	char	**res;
 	int		n;

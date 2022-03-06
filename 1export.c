@@ -6,13 +6,13 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 13:51:34 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/06 14:03:52 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/06 14:50:42 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int	ft_print_export(t_infor *st)
+int	ft_print_export(t_struct *st)
 {
 	t_list	*dup;
 
@@ -26,7 +26,7 @@ int	ft_print_export(t_infor *st)
 	return (0);
 }
 
-int	ft_export_helper(t_infor *st, char **splited, int i, int len)
+int	ft_export_helper(t_struct *st, char **splited, int i, int len)
 {
 	t_list	*dup;
 
@@ -62,7 +62,7 @@ int	ft_export_print_err(char **splited, int i)
 	return (1);
 }
 
-int	ft_export(char *var, t_infor *st)
+int	ft_export(char *var, t_struct *st)
 {
 	int		len;
 	char	**splited;

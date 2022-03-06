@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 13:54:13 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/06 13:54:15 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/06 14:50:42 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int	contain(char **cmd)
 	return (0);
 }
 
-int	ft_set_in(t_infor *st, int in)
+int	ft_set_in(t_struct *st, int in)
 {
 	close(in);
 	st->pip.in = open("./libft/.tmp", O_RDONLY, 0777);

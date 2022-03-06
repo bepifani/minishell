@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 13:51:27 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/06 13:51:30 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/06 14:50:42 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	ft_strisdig(char *str)
 	return (1);
 }
 
-void	ft_exit(char *argv, t_infor *st)
+void	ft_exit(char *argv, t_struct *st)
 {
 	char	**splited;
 

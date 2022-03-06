@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 13:52:46 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/06 14:46:24 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/06 14:50:42 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	ft_strrchr_upred(char *s, int c)
 	return (0);
 }
 
-void	ft_create_l(t_infor *st, char *s, int index)
+void	ft_create_l(t_struct *st, char *s, int index)
 {
 	int		i;
 	int		len;
@@ -55,7 +55,7 @@ void	ft_create_l(t_infor *st, char *s, int index)
 	}
 }
 
-void	ft_create_ll(t_infor *st, char *s, int index)
+void	ft_create_ll(t_struct *st, char *s, int index)
 {
 	int		i;
 	int		len;
@@ -80,7 +80,7 @@ void	ft_create_ll(t_infor *st, char *s, int index)
 	}
 }
 
-void	ft_create_r(t_infor *st, char *s, int k)
+void	ft_create_r(t_struct *st, char *s, int k)
 {
 	int		i;
 	int		len;
@@ -109,7 +109,7 @@ void	ft_create_r(t_infor *st, char *s, int k)
 	}
 }
 
-void	ft_rebildredir(t_infor *st)
+void	ft_rebildredir(t_struct *st)
 {
 	int	i;
 

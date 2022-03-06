@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 13:51:52 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/06 14:46:24 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/06 14:50:42 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	err_redd(char *s, int i)
 	return (1);
 }
 
-int	ft_check_reddir(t_infor *st)
+int	ft_check_reddir(t_struct *st)
 {
 	int	i;
 

@@ -6,13 +6,13 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 13:52:28 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/06 13:52:30 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/06 14:50:42 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-char	*pipe_to_string(t_infor *st, int *i, int *j)
+char	*pipe_to_string(t_struct *st, int *i, int *j)
 {
 	int		len;
 	char	*nl;
@@ -82,7 +82,7 @@ int	ft_checkenv_d(char *s)
 	return (0);
 }
 
-int	ft_swap_ask(t_infor *st, int index, int i)
+int	ft_swap_ask(t_struct *st, int index, int i)
 {
 	char	*digit;
 

@@ -6,20 +6,20 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 13:52:19 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/06 13:52:21 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/06 14:50:42 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int	ft_skip(t_infor *st)
+int	ft_skip(t_struct *st)
 {
 	if (st && st->line != NULL)
 		free(st->line);
 	return (0);
 }
 
-int	ft_error(t_infor *st, int code)
+int	ft_error(t_struct *st, int code)
 {
 	if (code == 1)
 	{

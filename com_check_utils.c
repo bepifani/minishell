@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 13:51:57 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/06 14:46:24 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/06 14:50:42 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ char	*ft_import(char *st, char *str, int i, int j)
 	return (newline);
 }
 
-int	ft_enver(t_infor *st, int index, int i, int j)
+int	ft_enver(t_struct *st, int index, int i, int j)
 {
 	char	*newline;
 	int		z;
@@ -66,7 +66,7 @@ int	ft_enver(t_infor *st, int index, int i, int j)
 	return (-1);
 }
 
-int	ft_swap_env(t_infor *st, int index, int i)
+int	ft_swap_env(t_struct *st, int index, int i)
 {
 	char	*name;
 	int		j;
@@ -95,7 +95,7 @@ int	ft_swap_env(t_infor *st, int index, int i)
 	return (ft_strlen(str) - 1);
 }
 
-int	ft_check_pipes(t_infor *st)
+int	ft_check_pipes(t_struct *st)
 {
 	int	i;
 	int	j;
@@ -123,7 +123,7 @@ int	ft_check_pipes(t_infor *st)
 	return (0);
 }
 
-void	ft_cutter(t_infor *st)
+void	ft_cutter(t_struct *st)
 {
 	int		i;
 	char	*tmp;

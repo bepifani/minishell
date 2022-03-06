@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 13:52:24 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/06 14:36:44 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/06 14:50:42 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	ft_print_err_exec(char **command)
 	exit(127);
 }
 
-void	execute(char *command, char **env, t_infor *st)
+void	execute(char *command, char **env, t_struct *st)
 {
 	char	**r_command;
 	char	*path;

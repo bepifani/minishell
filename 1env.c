@@ -6,13 +6,13 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 13:51:19 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/06 14:03:29 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/06 14:50:42 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int	set_envp(t_infor *st)
+int	set_envp(t_struct *st)
 {
 	int		count;
 	char	**new_env;
@@ -37,7 +37,7 @@ int	set_envp(t_infor *st)
 	return (1);
 }
 
-void	get_env(t_infor *st)
+void	get_env(t_struct *st)
 {
 	t_list	*dup;
 

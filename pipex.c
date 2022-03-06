@@ -6,13 +6,13 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 13:53:36 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/06 14:37:28 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/06 14:50:42 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int	fork_and_chain(int *lpipe, int *rpipe, char **cmd, t_infor *st)
+int	fork_and_chain(int *lpipe, int *rpipe, char **cmd, t_struct *st)
 {
 	int	pid;
 
@@ -39,7 +39,7 @@ int	fork_and_chain(int *lpipe, int *rpipe, char **cmd, t_infor *st)
 	return (pid);
 }
 
-int	pipe_cycle(char ***cmd, t_infor *st, int i)
+int	pipe_cycle(char ***cmd, t_struct *st, int i)
 {
 	int	pid;
 
@@ -53,7 +53,7 @@ int	pipe_cycle(char ***cmd, t_infor *st, int i)
 	return (pid);
 }
 
-void	if_count_no_one(int i, int flag, char ***cmd, t_infor *st)
+void	if_count_no_one(int i, int flag, char ***cmd, t_struct *st)
 {
 	if (st->count != 1 && flag == 1)
 	{
@@ -68,7 +68,7 @@ void	if_count_no_one(int i, int flag, char ***cmd, t_infor *st)
 	}
 }
 
-void	pipex(char ***cmd, t_infor *st)
+void	pipex(char ***cmd, t_struct *st)
 {
 	int	i;
 	int	count;

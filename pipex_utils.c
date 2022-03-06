@@ -6,13 +6,13 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 13:53:31 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/06 14:36:46 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/06 14:50:42 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int	ft_pipe_util(char *arg, t_infor *st)
+int	ft_pipe_util(char *arg, t_struct *st)
 {
 	if (!ft_strncmp("pwd ", arg, 4) || !ft_strncmp("pwd", arg, 4))
 		ft_pwd();
@@ -39,7 +39,7 @@ int	ft_pipe_util(char *arg, t_infor *st)
 	return (0);
 }
 
-void	ft_reinit_pip(t_infor *st)
+void	ft_reinit_pip(t_struct *st)
 {
 	close(st->pip.lpipe[0]);
 	close(st->pip.lpipe[1]);

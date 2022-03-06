@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 13:51:46 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/06 14:27:14 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/06 14:50:42 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	ft_unset_print_err(char **splited, int i)
 	return (1);
 }
 
-void	ft_inset_helper(char *splited_i, int len, t_infor *st)
+void	ft_inset_helper(char *splited_i, int len, t_struct *st)
 {
 	t_list	*dup;
 	char	*tmp;
@@ -74,7 +74,7 @@ void	ft_inset_helper(char *splited_i, int len, t_infor *st)
 	free(tmp);
 }
 
-int	ft_unset(char *var, t_infor *st)
+int	ft_unset(char *var, t_struct *st)
 {
 	char	**splited;
 	int		i;

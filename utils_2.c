@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 14:02:56 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/06 14:46:24 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/06 14:50:42 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	ft_strrchr_deep(char *s, int c)
 	return (0);
 }
 
-void	ft_last_redd(t_infor *st, char *s, int index)
+void	ft_last_redd(t_struct *st, char *s, int index)
 {
 	int	j;
 
@@ -48,7 +48,7 @@ void	ft_last_redd(t_infor *st, char *s, int index)
 		st->last_r[index] = 1;
 }
 
-void	ft_last_red(t_infor *st, char **s)
+void	ft_last_red(t_struct *st, char **s)
 {
 	int	iinc[3];
 

@@ -6,13 +6,13 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 13:53:27 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/06 14:35:46 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/06 14:50:42 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	do_redir_left(char **cmd, int *lpipe, t_infor *st)
+void	do_redir_left(char **cmd, int *lpipe, t_struct *st)
 {
 	int	i;
 	int	in;
@@ -37,7 +37,7 @@ void	do_redir_left(char **cmd, int *lpipe, t_infor *st)
 		ft_set_read(lpipe, -1);
 }
 
-void	do_redir_right(char **cmd, int *rpipe, t_infor *st)
+void	do_redir_right(char **cmd, int *rpipe, t_struct *st)
 {
 	int	i;
 
@@ -56,7 +56,7 @@ void	do_redir_right(char **cmd, int *rpipe, t_infor *st)
 		ft_set_write(rpipe, -1);
 }
 
-void	do_command(char **cmd, int *rpipe, t_infor *st)
+void	do_command(char **cmd, int *rpipe, t_struct *st)
 {
 	int	i;
 
@@ -73,7 +73,7 @@ void	do_command(char **cmd, int *rpipe, t_infor *st)
 	exit(0);
 }
 
-int	ft_check_buildins(char **cmd, t_infor *st, int count)
+int	ft_check_buildins(char **cmd, t_struct *st, int count)
 {
 	int	i;
 
