@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 13:53:36 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/06 13:53:38 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/06 14:37:28 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	fork_and_chain(int *lpipe, int *rpipe, char **cmd, t_infor *st)
 		exit(1);
 	else if (!pid)
 	{
-		signal(SIGINT, sig_void2);
+		signal(SIGINT, ft_sig_void2);
 		rl_catch_signals = 1;
 		do_redir_left(cmd, lpipe, st);
 		signal(SIGINT, sig_handler);

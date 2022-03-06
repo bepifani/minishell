@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 13:51:57 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/06 13:51:59 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/06 14:46:24 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,11 +102,11 @@ int	ft_check_pipes(t_infor *st)
 	int	flag;
 
 	i = 0;
-	is_it_quot(st->line[i], 1);
+	ft_where_is_quot(st->line[i], 1);
 	while (st->line[i])
 	{
 		j = i;
-		if (is_it_quot(st->line[i], 0) == 0 && st->line[i] == '|')
+		if (ft_where_is_quot(st->line[i], 0) == 0 && st->line[i] == '|')
 		{
 			flag = 0;
 			while (st->line[j + 1] != '|' && st->line[j + 1])

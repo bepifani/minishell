@@ -6,7 +6,7 @@
 #    By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/06 13:53:16 by bepifani          #+#    #+#              #
-#    Updated: 2022/03/06 13:55:35 by bepifani         ###   ########.fr        #
+#    Updated: 2022/03/06 14:38:26 by bepifani         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,6 @@ SRCS = main.c \
 		ft_split.c \
 		ft_split_utils.c \
 		utils_1.c \
-		get_next_line.c \
 		inits.c \
 		errors.c \
 		com_check.c \

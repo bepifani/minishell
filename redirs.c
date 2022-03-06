@@ -6,14 +6,14 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 13:53:56 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/06 14:02:26 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/06 14:35:46 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "minishell.h"
 
-void	redirect_r(char *cmd, t_infor *st)
+void	ft_right_redir(char *cmd, t_infor *st)
 {
 	int	out;
 
@@ -34,7 +34,7 @@ void	redirect_r(char *cmd, t_infor *st)
 	ft_set_write(NULL, out);
 }
 
-int	redirect_l(char *cmd, t_infor *st)
+int	ft_left_redir(char *cmd, t_infor *st)
 {
 	close(st->pip.in);
 	if (!ft_strncmp(cmd, "<<", 2))

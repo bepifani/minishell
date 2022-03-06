@@ -6,13 +6,13 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 13:52:56 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/06 14:10:38 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/06 14:46:24 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int	is_it_quot(char s, int code)
+int	ft_where_is_quot(char s, int code)
 {
 	static int	flag = 0;
 
@@ -43,7 +43,7 @@ size_t	ft_word_count_up(char *s, char *c, int code)
 
 	i = 0;
 	count = 0;
-	is_it_quot(s[i], 1);
+	ft_where_is_quot(s[i], 1);
 	count = ft_parser_split_helper(s, i, c, code);
 	return (count);
 }
@@ -55,13 +55,13 @@ static char	*ft_newword_up(char *s, char c, size_t *i)
 	size_t	start;
 
 	len = 0;
-	is_it_quot(' ', 1);
+	ft_where_is_quot(' ', 1);
 	while (s[*i] == c && s[*i])
 	{
 		(*i)++;
 	}
 	start = *i;
-	while ((is_it_quot(s[*i], 0) || s[*i] != c) && s[*i])
+	while ((ft_where_is_quot(s[*i], 0) || s[*i] != c) && s[*i])
 	{
 		len++;
 		(*i)++;

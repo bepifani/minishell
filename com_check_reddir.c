@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 13:51:52 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/06 13:51:54 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/06 14:46:24 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	err_redd(char *s, int i)
 {
 	int	j;
 
-	is_it_quot(' ', 1);
+	ft_where_is_quot(' ', 1);
 	while (s[i + 1] == ' ' && s[i + 1])
 		i++;
 	j = i + 1;

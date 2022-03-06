@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 13:53:22 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/06 14:15:03 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/06 14:47:01 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,8 @@ typedef struct s_infor
 void		pipex(char ***cmd, t_infor *st);
 int			contain(char **cmd);
 void		ft_mshfree_helper(int exc, t_infor *st);
-void		ft_do_redir_left_deep(t_infor *st, int in);
+// void		ft_do_redir_left_deep(t_infor *st, int in);
+void		ft_maker_left_redir(t_infor *st, int in);
 void		do_redir_left(char **cmd, int *lpipe, t_infor *st);
 void		do_redir_right(char **cmd, int *rpipe, t_infor *st);
 void		do_command(char **cmd, int *rpipe, t_infor *st);
@@ -78,12 +79,15 @@ void		ft_echo(char *arg, t_infor *st);
 void		ft_reinit_pip(t_infor *st);
 void		ft_set_read(int *lpipe, int in);
 void		ft_set_write(int *rpipe, int out);
-void		redirect_r(char *cmd, t_infor *st);
-int			redirect_l(char *cmd, t_infor *st);
+// void		redirect_r(char *cmd, t_infor *st);
+void		ft_right_redir(char *cmd, t_infor *st);
+// int		redirect_l(char *cmd, t_infor *st);
+int			ft_left_redir(char *cmd, t_infor *st);
 void		here_doc(char *limiter);
 char		*find_path(char *command, char **env);
 void		execute(char *command, char **env, t_infor *st);
-int			pipa_helper(char *arg, t_infor *st);
+// int			pipa_helper(char *arg, t_infor *st);
+int			ft_pipe_util(char *arg, t_infor *st);
 int			ft_mshfree1(t_infor *st, int code, int exc);
 char		*ft_import(char *st, char *str, int i, int j);
 int			ft_checkenv_d_pars(char *s);
@@ -92,7 +96,8 @@ char		**ft_split_wquots(char *args);
 int			set_envp(t_infor *st);
 int			check_name_var(char *str);
 void		ft_redirect(char *str, int *i);
-void		sig_void2(int signum);
+// void		sig_void2(int signum);
+void		ft_sig_void2(int signum);
 void		ft_changefirstcomm(t_infor *st);
 void		ft_error_cmd(char *cmd, char *arg, int status);
 char		**get_modif_arg(char **argv);
@@ -101,9 +106,8 @@ char		**ft_split_up(char *s, char *c);
 size_t		ft_word_count_up(char *s, char *c, int code);
 char		**ft_mmyfree(char **str);
 void		ft_bzero(void *s, size_t n);
-void		*ft_memset(void *b, int c, size_t len);
-void		*ft_calloc(size_t count, size_t size);
-int			get_next_line(char **line);
+// void		*ft_memset(void *b, int c, size_t len);
+// void		*ft_calloc(size_t count, size_t size);
 void		ft_init(t_infor *st, int argc, char **argv, char **envp);
 int			ft_skip(t_infor *st);
 void		ft_putstr(char *s);
@@ -115,7 +119,8 @@ int			ft_parser_split_helper(char *s, int i, char *c, int code);
 void		ft_com_split(t_infor *st);
 char		*find_path(char *command, char **env);
 char		*pipe_to_string(t_infor *st, int *i, int *j);
-int			is_it_quot(char s, int code);
+// int			ft_where_is_quot(char s, int code);
+int			ft_where_is_quot(char s, int code);
 int			ft_swap_env(t_infor *st, int index, int i);
 char		**ft_split_pars_up(char *args);
 size_t		ft_word_count_l(char *s, char c);

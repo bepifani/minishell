@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 13:52:02 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/06 13:52:04 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/06 14:46:24 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,10 @@ int	ft_semicolon(char **sst)
 	while (sst[i])
 	{
 		j = 0;
-		is_it_quot(sst[i][j], 1);
+		ft_where_is_quot(sst[i][j], 1);
 		while (sst[i][j])
 		{
-			if (is_it_quot(sst[i][j], 0) == 0
+			if (ft_where_is_quot(sst[i][j], 0) == 0
 				&& sst[i][j] == ';')
 				return (1);
 			j++;
@@ -69,12 +69,12 @@ int	check_space_inquot(t_infor *st)
 
 	flag = 0;
 	i = 0;
-	is_it_quot (st->line[i], 1);
+	ft_where_is_quot (st->line[i], 1);
 	while (st->line[i] == ' ')
 		i++;
 	while (st->line[i])
 	{
-		flag = is_it_quot(st->line[i], 0);
+		flag = ft_where_is_quot(st->line[i], 0);
 		if ((flag != 0) && st->line[i] == ' ')
 		{
 			return (1);
@@ -93,14 +93,14 @@ void	ft_opendollar(t_infor *st)
 	int	flag;
 
 	i = 0;
-	is_it_quot(' ', 1);
+	ft_where_is_quot(' ', 1);
 	while (st->splited[i])
 	{
 		j = 0;
-		flag = is_it_quot(st->splited[i][j], 1);
+		flag = ft_where_is_quot(st->splited[i][j], 1);
 		while (st->splited[i][j])
 		{
-			flag = is_it_quot(st->splited[i][j], 0);
+			flag = ft_where_is_quot(st->splited[i][j], 0);
 			if (st->splited[i][j] == '$')
 			{
 				if (flag == 2)

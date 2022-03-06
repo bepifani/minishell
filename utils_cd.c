@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 13:54:22 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/06 13:54:24 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/06 14:33:11 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int	ft_mshfree1(t_infor *st, int code, int exc)
 	return (1);
 }
 
-void	ft_do_redir_left_deep(t_infor *st, int in)
+void	ft_maker_left_redir(t_infor *st, int in)
 {
 	if (st->last_r[st->pip.curr_index] == 2)
 	{

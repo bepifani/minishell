@@ -6,13 +6,13 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 13:53:31 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/06 13:53:33 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/06 14:36:46 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int	pipa_helper(char *arg, t_infor *st)
+int	ft_pipe_util(char *arg, t_infor *st)
 {
 	if (!ft_strncmp("pwd ", arg, 4) || !ft_strncmp("pwd", arg, 4))
 		ft_pwd();

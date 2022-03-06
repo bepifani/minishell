@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 13:53:27 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/06 13:53:29 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/06 14:35:46 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ void	do_redir_left(char **cmd, int *lpipe, t_infor *st)
 		if (lpipe)
 			close(lpipe[0]);
 		while (cmd[i][j] == '<')
-			in = redirect_l(cmd[i++], st);
-		ft_do_redir_left_deep(st, in);
+			in = ft_left_redir(cmd[i++], st);
+		ft_maker_left_redir(st, in);
 		ft_set_read(NULL, in);
 	}
 	else if (lpipe)
@@ -46,7 +46,7 @@ void	do_redir_right(char **cmd, int *rpipe, t_infor *st)
 		i++;
 	if (cmd[i])
 	{
-		redirect_r(cmd[i], st);
+		ft_right_redir(cmd[i], st);
 		if (rpipe)
 			close(rpipe[0]);
 		if (rpipe)

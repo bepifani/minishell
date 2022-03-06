@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 13:52:51 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/06 13:52:53 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/06 14:45:58 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,10 @@ int	ft_parser_split_helper(char *s, int i, char *c, int code)
 		if ((s[i] != c[0] && s[i] != c[1]) && s[i])
 		{
 			count++;
-			while ((is_it_quot(s[i], 0)
+			while ((ft_where_is_quot(s[i], 0)
 					|| (s[i] != c[0] && s[i] != c[1])) && s[i])
 			{
-				if (is_it_quot(s[i], 2) == 0 && s[i] == '|' && code == 1)
+				if (ft_where_is_quot(s[i], 2) == 0 && s[i] == '|' && code == 1)
 				{
 					if (s[i - 1] != ' ')
 						count ++;
@@ -78,7 +78,7 @@ int	ft_parser_split_helper2(char *s, int i, char *c, int code)
 				if (s[i] == 34 || s[i] == 39)
 				{
 					count++;
-					while (s[i] && is_it_quot(s[i], 0) != 0)
+					while (s[i] && ft_where_is_quot(s[i], 0) != 0)
 						i++;
 					break ;
 				}

@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 13:54:04 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/06 14:02:36 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/06 14:37:28 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	sig_void(int sig)
 	(void)sig;
 }
 
-void	sig_void2(int sig)
+void	ft_sig_void2(int sig)
 {
 	(void)sig;
 	g_error = 1;

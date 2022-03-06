@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 13:52:24 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/06 13:52:26 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/06 14:36:44 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void	execute(char *command, char **env, t_infor *st)
 	char	**r_command;
 	char	*path;
 
-	if (!pipa_helper(command, st))
+	if (!ft_pipe_util(command, st))
 	{
 		r_command = ft_split_wquots(command);
 		if (!ft_strncmp("exit ", r_command[0], 5) \

@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 13:54:09 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/06 13:54:10 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/06 14:46:24 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ int	get_interval_len(char *args, int *i)
 	int	len;
 
 	len = 0;
-	if (is_it_quot(args[*i], 0) != 0)
+	if (ft_where_is_quot(args[*i], 0) != 0)
 	{
 		(*i)++;
-		while (is_it_quot(args[*i], 0) && args[*i])
+		while (ft_where_is_quot(args[*i], 0) && args[*i])
 		{
 			(*i)++;
 			len++;
@@ -45,7 +45,7 @@ void	make_strings(int acc, char *args, char **splited)
 
 	i = 0;
 	j = 0;
-	is_it_quot(' ', 1);
+	ft_where_is_quot(' ', 1);
 	while (j < acc)
 	{
 		len = 0;
@@ -63,7 +63,7 @@ size_t	ft_word_count_up2(char *s, char *c, int code)
 
 	i = 0;
 	count = 0;
-	is_it_quot(s[i], 1);
+	ft_where_is_quot(s[i], 1);
 	count = ft_parser_split_helper2(s, i, c, code);
 	return (count);
 }
@@ -78,7 +78,7 @@ char	**ft_split_wquots(char *args)
 	if (!splited)
 		ft_error(NULL, 1);
 	splited[acc] = NULL;
-	is_it_quot(' ', 1);
+	ft_where_is_quot(' ', 1);
 	make_strings(acc, args, splited);
 	return (splited);
 }
