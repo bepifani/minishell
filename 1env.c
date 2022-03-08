@@ -6,7 +6,7 @@
 /*   By: bepifani <bepifani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 13:51:19 by bepifani          #+#    #+#             */
-/*   Updated: 2022/03/06 14:50:42 by bepifani         ###   ########.fr       */
+/*   Updated: 2022/03/06 15:04:57 by bepifani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	set_envp(t_struct *st)
 	return (1);
 }
 
-void	get_env(t_struct *st)
+void	ft_getting_env(t_struct *st)
 {
 	t_list	*dup;
 
