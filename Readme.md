@@ -8,4 +8,7 @@ make
 ##Options:
 1) ls
 2) pwd
-3) 
+3) cd
+4) cat
+5) echo
+6) env
