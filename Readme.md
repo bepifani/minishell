@@ -5,7 +5,7 @@ The objective of this project is for you to create a simple shell.
 make
 ./minishell
 ~~~
-##Options:
+## Options:
 1) ls
 2) pwd
 3) cd
